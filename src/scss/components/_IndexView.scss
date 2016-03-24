@@ -1,0 +1,39 @@
+@import "mixins";
+
+.IndexView {
+    margin-top: 0;
+    background-color: $appBackground;
+    position: relative;
+    color: $regularText;
+    line-height: 18px;
+    height: 500px;
+    overflow: hidden;
+    padding-top: 6px;
+    .add {
+        border-radius: 50%;
+        position: absolute;
+        top: 85%;
+        left: 80%;
+        background-color: $buttonGreen;
+        height: 50px;
+        width: 50px;
+        border: none;
+        color: $titleWhite;
+        font-size: 30px;
+    }
+    .runDate {
+        float: left;
+        text-align: left;
+        @include column(1, 2);
+        padding-left: 1em;
+    }
+    .runTime {
+        float: right;
+        text-align: right;
+        @include column(1, 2);
+        padding-right: 1em;
+    }
+    hr {
+        border-color: $placeHolderText;
+    }
+}

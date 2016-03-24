@@ -1,0 +1,54 @@
+@import "vars";
+@import "mixins";
+
+.newRunPage {
+
+    h1 {
+        padding-top: 25px;
+        padding-left: 3px;
+        margin-top: 0;
+    }
+
+    margin: 0 auto;
+    
+    color: $titleWhite;
+
+    background-color: $appBackground;
+
+    height: 500px;
+
+        input {
+            border: none;
+            border-bottom: 2px solid $placeHolderText;
+            padding-left: 20px;
+            color: $inputText;
+            line-height: 50px;
+            width: 100%;
+            height: 50px;
+            margin: 10px 0;
+            padding: 0;
+            background-color: $appBackground;
+        }
+
+        button {
+            border: none;
+            border-radius: 3%;
+        }
+
+        .submit {
+            @include column(1, 3);
+            float: right;
+            background-color: $buttonGreen;
+            color: $greyButtonText;
+            margin-right: 1em;
+        }
+
+        .cancel {
+            @include column(1, 3);
+            float: left;
+            background-color: $buttonGrey;
+            color: $greyButtonText;
+            margin-left: 1em;
+        }
+}
+

@@ -1,0 +1,21 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+@import "components/normalize";
+@import "components/vars";
+
+html body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 18px;
+}
+
+@import "components/header";
+
+@import "components/appView";
+
+@import "components/NewRunPage";
+
+@import "components/IndexView";
+
+@import "components/detailView";
