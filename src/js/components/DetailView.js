@@ -26,11 +26,11 @@ var DetailView = Backbone.View.extend({
     },
 
     goBack: function () {
-        window.location.hash = 'index';
+        window.location.hash = '';
     },
     deleteRun: function (id) {
         this.model.destroy();
-        window.location.hash = 'index';
+        window.location.hash = '';
     }
 });
 

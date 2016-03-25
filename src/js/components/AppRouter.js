@@ -9,7 +9,7 @@ var indexCollection = require('./IndexCollection');
 
 var AppRouter = Backbone.Router.extend({
     routes: {
-        'index': 'index',
+        '': 'index',
         'create': 'create',
         'add': 'create',
         'detail/:id': 'detail'

@@ -13328,7 +13328,7 @@ var indexCollection = require('./IndexCollection');
 
 var AppRouter = Backbone.Router.extend({
     routes: {
-        'index': 'index',
+        '': 'index',
         'create': 'create',
         'add': 'create',
         'detail/:id': 'detail'
@@ -13422,11 +13422,11 @@ var DetailView = Backbone.View.extend({
     },
 
     goBack: function () {
-        window.location.hash = 'index';
+        window.location.hash = '';
     },
     deleteRun: function (id) {
         this.model.destroy();
-        window.location.hash = 'index';
+        window.location.hash = '';
     }
 });
 
@@ -13564,7 +13564,7 @@ var NewRunPage = Backbone.View.extend({
 
     formCancel: function () {
         // go back to the original screen
-        window.location.hash = 'index';
+        window.location.hash = '';
     },
 
     createRun: function () {
@@ -13582,7 +13582,7 @@ var NewRunPage = Backbone.View.extend({
 
         // then, change the hash to 'index' so the router will navigate
         // to the index
-        window.location.hash = 'index';
+        window.location.hash = '';
     },
 
     onKeydown: function (e) {
