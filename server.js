@@ -36,4 +36,17 @@ app.delete('/api/runs/:id', function (req, res) {
     // and and move up one position
     data.splice(data.indexOf(run), 1);
 });
+
+app.put('/api/runs/:id', function (req, res) {
+    var id = parseInt(req.params.id);
+    // find the corresponding id in the data array and delete it
+    var run = data.filter(function (run) {
+        return run.id === id;
+        // access the index[0] in the run array which is what we filtered for
+    })[0];
+    // using the Object.assigny we will, update the data with what we edited
+    Object.assign(run, { id: id, runDate: req.body.runDate, runNotes: req.body.runNotes, runTime: req.body.runTime });
+    // our response is to return the json form of the run we just edited
+    res.json(run);
+});
 app.listen(3000);

@@ -13317,8 +13317,11 @@ return jQuery;
 }.call(this));
 
 },{}],4:[function(require,module,exports){
+'use strict';
+
 var Backbone = require('backbone');
 
+var EditView = require('./EditView');
 var IndexView = require('./IndexView');
 var NewRunPage = require('./NewRunPage');
 var dispatcher = require('./dispatcher');
@@ -13331,28 +13334,40 @@ var AppRouter = Backbone.Router.extend({
         '': 'index',
         'create': 'create',
         'add': 'create',
-        'detail/:id': 'detail'
+        'detail/:id': 'detail',
+        'edit/:id': 'edit'
     },
-    index: function () {
+    index: function index() {
         indexCollection.fetch();
-        dispatcher.trigger('app:show', new IndexView({collection: indexCollection}));
+        dispatcher.trigger('app:show', new IndexView({ collection: indexCollection }));
     },
-    create: function () {
+    create: function create() {
         indexCollection.fetch();
-        dispatcher.trigger('app:show', new NewRunPage({collection: indexCollection}));
+        dispatcher.trigger('app:show', new NewRunPage({ collection: indexCollection }));
     },
-    detail: function (id) {
+    detail: function detail(id) {
         indexCollection.fetch({
-            success: function () {
+            success: function success() {
                 var model = indexCollection.find({ id: parseInt(id) });
                 dispatcher.trigger('app:show', new DetailView({ model: model }));
+            }
+        });
+    },
+    edit: function edit(id) {
+        indexCollection.fetch({
+            success: function success() {
+                var model = indexCollection.find({ id: parseInt(id) });
+                dispatcher.trigger('app:show', new EditView({ model: model }));
             }
         });
     }
 });
 
 module.exports = AppRouter;
-},{"./DetailView":6,"./IndexCollection":8,"./IndexView":9,"./NewRunPage":11,"./dispatcher":13,"backbone":1}],5:[function(require,module,exports){
+
+},{"./DetailView":6,"./EditView":7,"./IndexCollection":9,"./IndexView":10,"./NewRunPage":12,"./dispatcher":16,"backbone":1}],5:[function(require,module,exports){
+'use strict';
+
 var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
@@ -13363,26 +13378,23 @@ var dispatcher = require('./dispatcher');
 
 var appView = Backbone.View.extend({
 
-    template: _.template(`
-        <div class='header-slot'></div>
-        <div class="content-slot"></div>
-    `),
+    template: _.template(require('./appView.html')),
 
-    initialize: function () {
+    initialize: function initialize() {
         this.headerView = new HeaderView();
         this.listenTo(dispatcher, 'app:show', this.show);
     },
 
-    render: function () {
+    render: function render() {
         this.$el.html(this.template());
         this.$('.header-slot').append(this.headerView.$el);
         this.headerView.render();
     },
-    remove: function () {
+    remove: function remove() {
         this.headerView.remove();
         Backbone.View.prototype.remove.call(this);
     },
-    show: function (view) {
+    show: function show(view) {
         if (this.child) {
             this.child.remove();
         }
@@ -13393,7 +13405,10 @@ var appView = Backbone.View.extend({
 });
 
 module.exports = appView;
-},{"./HeaderView":7,"./dispatcher":13,"backbone":1,"jquery":2,"underscore":3}],6:[function(require,module,exports){
+
+},{"./HeaderView":8,"./appView.html":14,"./dispatcher":16,"backbone":1,"jquery":2,"underscore":3}],6:[function(require,module,exports){
+'use strict';
+
 var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
@@ -13401,50 +13416,94 @@ var $ = require('jquery');
 var DetailView = Backbone.View.extend({
     className: 'DetailView',
 
-    template: _.template(`
-        <h2 class="title"> My Run</h2>
-        <div class="runDate"> <%= runDate %> </div>
-        <div class="runTime"> <%= runTime %> </div>
-        <p class="runNotes"> <%= runNotes %> </p>
-        <div class="detailNav">
-        <button class="back"> Back </button>
-        <button class="destroy"> Delete </button>
-        </div>
-    `),
+    template: _.template(require('./detailView.html')),
 
-    render: function () {
+    render: function render() {
         this.$el.html(this.template(this.model.attributes));
     },
 
     events: {
         'click .back': 'goBack',
-        'click .destroy': 'deleteRun'
+        'click .destroy': 'deleteRun',
+        'click .edit': 'editRun'
     },
 
-    goBack: function () {
+    goBack: function goBack() {
         window.location.hash = '';
     },
-    deleteRun: function (id) {
+    deleteRun: function deleteRun(id) {
         this.model.destroy();
         window.location.hash = '';
+    },
+    editRun: function editRun(id) {
+        window.location.hash = 'edit/' + this.model.get('id');
     }
 });
 
 module.exports = DetailView;
-},{"backbone":1,"jquery":2,"underscore":3}],7:[function(require,module,exports){
+
+},{"./detailView.html":15,"backbone":1,"jquery":2,"underscore":3}],7:[function(require,module,exports){
+'use strict';
+
+var Backbone = require('backbone');
+var _ = require('underscore');
+
+var EditView = Backbone.View.extend({
+    className: 'editView',
+    template: _.template(require('./editView.html')),
+    events: {
+        'click .submit': 'editRun',
+        'click .cancel': 'formCancel',
+        'keydown': 'onKeydown'
+    },
+    editRun: function editRun() {
+        var runTime = this.$('.runTime').val();
+        var runDate = this.$('.runDate').val();
+        var runNotes = this.$('.runNotes').val();
+
+        this.model.set({
+            runTime: runTime,
+            runDate: runDate,
+            runNotes: runNotes
+        });
+
+        this.model.save();
+        window.location.hash = 'detail/' + this.model.get('id');
+    },
+    formCancel: function formCancel() {
+        window.location.hash = 'detail/' + this.model.get('id');
+    },
+    onKeydown: function onKeydown(e) {
+        if (e.keyCode === 13) {
+            this.editRun();
+        }
+    },
+    render: function render() {
+        this.$el.html(this.template(this.model.attributes));
+    }
+});
+
+module.exports = EditView;
+
+},{"./editView.html":17,"backbone":1,"underscore":3}],8:[function(require,module,exports){
+'use strict';
+
 var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
 
 var HeaderView = Backbone.View.extend({
-    template: _.template('<h1 class="header"> Run Timer</h1>'),
-    render: function () {
+    template: _.template(require('./headerView.html')),
+    render: function render() {
         this.$el.html(this.template());
     }
 });
 
 module.exports = HeaderView;
-},{"backbone":1,"jquery":2,"underscore":3}],8:[function(require,module,exports){
+
+},{"./headerView.html":18,"backbone":1,"jquery":2,"underscore":3}],9:[function(require,module,exports){
+'use strict';
+
 var Backbone = require('backbone');
 var RunDataModel = require('./RunDataModel');
 
@@ -13454,7 +13513,10 @@ var IndexCollection = Backbone.Collection.extend({
 });
 
 module.exports = new IndexCollection();
-},{"./RunDataModel":12,"backbone":1}],9:[function(require,module,exports){
+
+},{"./RunDataModel":13,"backbone":1}],10:[function(require,module,exports){
+'use strict';
+
 var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
@@ -13464,15 +13526,13 @@ var ListItemView = require('./ListItemView');
 var IndexView = Backbone.View.extend({
     className: 'IndexView',
 
-    template: _.template(`
-        <button class='add'> + </button>
-    `),
-    initialize: function () {
+    template: _.template(require('./indexView.html')),
+    initialize: function initialize() {
         this.children = [];
         this.render();
         this.listenTo(this.collection, 'sync destroy', this.render);
     },
-    render: function () {
+    render: function render() {
         var that = this;
 
         this.removeChildren();
@@ -13491,22 +13551,25 @@ var IndexView = Backbone.View.extend({
     events: {
         'click .add': 'formCreate'
     },
-    formCreate: function () {
+    formCreate: function formCreate() {
         window.location.hash = 'create';
     },
-    removeChildren: function () {
+    removeChildren: function removeChildren() {
         this.children.forEach(function (view) {
             view.remove();
         });
     },
-    remove: function () {
+    remove: function remove() {
         this.removeChildren();
         Backbone.View.prototype.remove.call(this);
     }
 });
 
 module.exports = IndexView;
-},{"./ListItemView":10,"backbone":1,"jquery":2,"underscore":3}],10:[function(require,module,exports){
+
+},{"./ListItemView":11,"./indexView.html":19,"backbone":1,"jquery":2,"underscore":3}],11:[function(require,module,exports){
+'use strict';
+
 var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
@@ -13517,24 +13580,23 @@ var ListItemView = Backbone.View.extend({
         'click': 'onClick'
     },
 
-    onClick: function () {
+    onClick: function onClick() {
         window.location.hash = 'detail/' + this.model.get('id');
     },
 
-    template: _.template(`
-        <div class='runDate'> <%= runDate %> </div>
-        <div class='runTime'> <%= runTime %> </div>
-        <hr>
-    `),
+    template: _.template(require('./listItemView.html')),
 
-    render: function () {
+    render: function render() {
         this.$el.html(this.template(this.model.attributes));
     }
 
 });
 
 module.exports = ListItemView;
-},{"backbone":1,"jquery":2,"underscore":3}],11:[function(require,module,exports){
+
+},{"./listItemView.html":20,"backbone":1,"jquery":2,"underscore":3}],12:[function(require,module,exports){
+'use strict';
+
 var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
@@ -13549,25 +13611,18 @@ var NewRunPage = Backbone.View.extend({
         'keydown': 'onKeydown'
     },
 
-    template: _.template(`
-        <h1> New Run </h1>
-        <input class="runTime" placeholder="Run Time">
-        <input class="runDate" placeholder="Race Date">
-        <input class="runNotes" placeholder="Race Notes">
-        <button class="cancel"> Cancel </button>
-        <button class="submit"> Save </submit>
-    `),
+    template: _.template(require('./newRunPage.html')),
 
-    render: function () {
+    render: function render() {
         this.$el.html(this.template());
     },
 
-    formCancel: function () {
+    formCancel: function formCancel() {
         // go back to the original screen
         window.location.hash = '';
     },
 
-    createRun: function () {
+    createRun: function createRun() {
         // get the values from the inputs, merge them into an object
         // and push the object to the run collection
         var runTime = this.$('.runTime').val();
@@ -13585,31 +13640,60 @@ var NewRunPage = Backbone.View.extend({
         window.location.hash = '';
     },
 
-    onKeydown: function (e) {
+    onKeydown: function onKeydown(e) {
         if (e.keyCode === 13) {
             this.createRun();
         }
     }
 });
 module.exports = NewRunPage;
-},{"backbone":1,"jquery":2,"underscore":3}],12:[function(require,module,exports){
+
+},{"./newRunPage.html":21,"backbone":1,"jquery":2,"underscore":3}],13:[function(require,module,exports){
+'use strict';
+
 var Backbone = require('backbone');
 
-var RunDataModel = Backbone.Model.extend({
-
-});
+var RunDataModel = Backbone.Model.extend({});
 
 module.exports = RunDataModel;
-},{"backbone":1}],13:[function(require,module,exports){
+
+},{"backbone":1}],14:[function(require,module,exports){
+module.exports = "<div class='header-slot'></div>\n<div class=\"content-slot\"></div>";
+
+},{}],15:[function(require,module,exports){
+module.exports = "<h2 class=\"title\"> My Run</h2>\n    <div class=\"runDate\"> <%= runDate %> </div>\n    <div class=\"runTime\"> <%= runTime %> </div>\n    <p class=\"runNotes\"> <%= runNotes %> </p>\n    <div class=\"detailNav\">\n    <button class=\"back\"> Back </button>\n    <button class=\"destroy\"> Delete </button>\n    <button class=\"edit\"> Edit </button>\n</div>";
+
+},{}],16:[function(require,module,exports){
+'use strict';
+
 var Backbone = require('backbone');
 var _ = require('underscore');
 
 var dispatcher = _.extend({}, Backbone.Events);
 
 module.exports = dispatcher;
-},{"backbone":1,"underscore":3}],14:[function(require,module,exports){
+
+},{"backbone":1,"underscore":3}],17:[function(require,module,exports){
+module.exports = "<h1> Edit Run </h1>\n<input class=\"runTime\" value=\"<%= this.model.get('runTime') %>\">\n<input class=\"runDate\" type=\"date\" value=\"<%= this.model.get('runDate') %>\">\n<input class=\"runNotes\" value=\"<%= this.model.get('runNotes') %>\">\n<button class=\"cancel\"> Cancel </button>\n<button class=\"submit\"> Save </button>";
+
+},{}],18:[function(require,module,exports){
+module.exports = "<h1 class=\"header\"> Run Timer</h1>";
+
+},{}],19:[function(require,module,exports){
+module.exports = "<button class='add'> + </button>";
+
+},{}],20:[function(require,module,exports){
+module.exports = "<div class='runDate'> <%= runDate %> </div>\n<div class='runTime'> <%= runTime %> </div>\n<hr>";
+
+},{}],21:[function(require,module,exports){
+module.exports = "<h1> New Run </h1>\n<input class=\"runTime\" placeholder=\"Run Time\">\n<input class=\"runDate\" type=\"date\">\n<input class=\"runNotes\" placeholder=\"Race Notes\">\n<button class=\"cancel\"> Cancel </button>\n<button class=\"submit\"> Save </button>";
+
+},{}],22:[function(require,module,exports){
+'use strict';
+
 var Backbone = require('backbone');
 
+var dispatch = require('./components/dispatcher');
 var AppView = require('./components/AppView');
 var AppRouter = require('./components/AppRouter');
 
@@ -13619,7 +13703,10 @@ appView.render();
 
 var router = new AppRouter();
 
+dispatch.trigger('change', 'spider');
+
 document.body.appendChild(appView.el);
 
 Backbone.history.start();
-},{"./components/AppRouter":4,"./components/AppView":5,"backbone":1}]},{},[14]);
+
+},{"./components/AppRouter":4,"./components/AppView":5,"./components/dispatcher":16,"backbone":1}]},{},[22]);

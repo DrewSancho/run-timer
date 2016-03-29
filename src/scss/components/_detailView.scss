@@ -31,12 +31,17 @@
             }
             .back {
                 background-color: $buttonGrey;
-                @include column(1, 3);
+                @include column(1, 4);
                 margin-left: 1em;
             }
             .destroy {
                 background-color: $destroyBackground;
-                @include column(1, 3);
+                @include column(1, 4);
+                float: right;
+                margin-right: 1em;
+            }
+            .edit {
+                @include column(1, 4);
                 float: right;
                 margin-right: 1em;
             }

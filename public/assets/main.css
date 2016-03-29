@@ -371,16 +371,16 @@ html body {
 .app {
   background-color: #282828; }
 
-.newRunPage {
+.newRunPage, .editView {
   margin: 0 auto;
   color: #fff;
   background-color: #282828;
   height: 500px; }
-  .newRunPage h1 {
+  .newRunPage h1, .editView h1 {
     padding-top: 25px;
     padding-left: 3px;
     margin-top: 0; }
-  .newRunPage input {
+  .newRunPage input, .editView input {
     border: none;
     border-bottom: 2px solid rgba(255, 255, 255, 0.4);
     padding-left: 20px;
@@ -391,16 +391,16 @@ html body {
     margin: 10px 0;
     padding: 0;
     background-color: #282828; }
-  .newRunPage button {
+  .newRunPage button, .editView button {
     border: none;
     border-radius: 3%; }
-  .newRunPage .submit {
+  .newRunPage .submit, .editView .submit {
     width: 33.33333%;
     float: right;
     background-color: #80cbc4;
     color: #1c1c1c;
     margin-right: 1em; }
-  .newRunPage .cancel {
+  .newRunPage .cancel, .editView .cancel {
     width: 33.33333%;
     float: left;
     background-color: #ddd;
@@ -469,11 +469,15 @@ html body {
       float: left; }
     .DetailView .detailNav .back {
       background-color: #ddd;
-      width: 33.33333%;
+      width: 25%;
       margin-left: 1em; }
     .DetailView .detailNav .destroy {
       background-color: #9b859d;
-      width: 33.33333%;
+      width: 25%;
+      float: right;
+      margin-right: 1em; }
+    .DetailView .detailNav .edit {
+      width: 25%;
       float: right;
       margin-right: 1em; }
   .DetailView hr {

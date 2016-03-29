@@ -12,14 +12,7 @@ var NewRunPage = Backbone.View.extend({
         'keydown': 'onKeydown'
     },
 
-    template: _.template(`
-        <h1> New Run </h1>
-        <input class="runTime" placeholder="Run Time">
-        <input class="runDate" placeholder="Race Date">
-        <input class="runNotes" placeholder="Race Notes">
-        <button class="cancel"> Cancel </button>
-        <button class="submit"> Save </submit>
-    `),
+    template: _.template(require('./newRunPage.html')),
 
     render: function () {
         this.$el.html(this.template());

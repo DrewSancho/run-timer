@@ -12,11 +12,7 @@ var ListItemView = Backbone.View.extend({
         window.location.hash = 'detail/' + this.model.get('id');
     },
 
-    template: _.template(`
-        <div class='runDate'> <%= runDate %> </div>
-        <div class='runTime'> <%= runTime %> </div>
-        <hr>
-    `),
+    template: _.template(require('./listItemView.html')),
 
     render: function () {
         this.$el.html(this.template(this.model.attributes));

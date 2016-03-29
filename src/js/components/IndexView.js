@@ -7,9 +7,7 @@ var ListItemView = require('./ListItemView');
 var IndexView = Backbone.View.extend({
     className: 'IndexView',
 
-    template: _.template(`
-        <button class='add'> + </button>
-    `),
+    template: _.template(require('./indexView.html')),
     initialize: function () {
         this.children = [];
         this.render();

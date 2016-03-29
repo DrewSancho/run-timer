@@ -8,10 +8,7 @@ var dispatcher = require('./dispatcher');
 
 var appView = Backbone.View.extend({
 
-    template: _.template(`
-        <div class='header-slot'></div>
-        <div class="content-slot"></div>
-    `),
+    template: _.template(require('./appView.html')),
 
     initialize: function () {
         this.headerView = new HeaderView();

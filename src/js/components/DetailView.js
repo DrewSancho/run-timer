@@ -5,16 +5,7 @@ var $ = require('jquery');
 var DetailView = Backbone.View.extend({
     className: 'DetailView',
 
-    template: _.template(`
-        <h2 class="title"> My Run</h2>
-        <div class="runDate"> <%= runDate %> </div>
-        <div class="runTime"> <%= runTime %> </div>
-        <p class="runNotes"> <%= runNotes %> </p>
-        <div class="detailNav">
-        <button class="back"> Back </button>
-        <button class="destroy"> Delete </button>
-        </div>
-    `),
+    template: _.template(require('./detailView.html')),
 
     render: function () {
         this.$el.html(this.template(this.model.attributes));
@@ -22,7 +13,8 @@ var DetailView = Backbone.View.extend({
 
     events: {
         'click .back': 'goBack',
-        'click .destroy': 'deleteRun'
+        'click .destroy': 'deleteRun',
+        'click .edit': 'editRun'
     },
 
     goBack: function () {
@@ -31,6 +23,9 @@ var DetailView = Backbone.View.extend({
     deleteRun: function (id) {
         this.model.destroy();
         window.location.hash = '';
+    },
+    editRun: function (id) {
+        window.location.hash = 'edit/' + this.model.get('id');
     }
 });
 

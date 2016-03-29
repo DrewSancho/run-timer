@@ -1,5 +1,6 @@
 var Backbone = require('backbone');
 
+var EditView = require('./EditView');
 var IndexView = require('./IndexView');
 var NewRunPage = require('./NewRunPage');
 var dispatcher = require('./dispatcher');
@@ -12,7 +13,8 @@ var AppRouter = Backbone.Router.extend({
         '': 'index',
         'create': 'create',
         'add': 'create',
-        'detail/:id': 'detail'
+        'detail/:id': 'detail',
+        'edit/:id': 'edit'
     },
     index: function () {
         indexCollection.fetch();
@@ -27,6 +29,14 @@ var AppRouter = Backbone.Router.extend({
             success: function () {
                 var model = indexCollection.find({ id: parseInt(id) });
                 dispatcher.trigger('app:show', new DetailView({ model: model }));
+            }
+        });
+    },
+    edit: function (id) {
+        indexCollection.fetch({
+            success: function () {
+                var model = indexCollection.find({ id: parseInt(id) });
+                dispatcher.trigger('app:show', new EditView({ model: model }));
             }
         });
     }
