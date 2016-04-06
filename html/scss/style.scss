@@ -1,0 +1,32 @@
+header{
+	background: #12301C; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#12301C, #009572); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#12301C, #009572); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#12301C, #009572); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#12301C, #009572); /* Standard syntax */
+
+    border-bottom: solid 2px #ECA400;
+
+    .back{
+    	display: none;
+    }
+
+    .logo{
+
+    }
+}
+
+footer{
+
+	.home{
+		background: url(../img/home.png);
+	}
+
+	.runs{
+		background: url(../img/shoe.png);
+	}
+
+	.data{
+		background: url(../img/graph.png);
+	}
+}
