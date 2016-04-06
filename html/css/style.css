@@ -22,7 +22,7 @@
   text-transform: uppercase;
   margin-bottom: 40px; }
 
-#start-run label {
+#run_app label {
   font-weight: 300;
   font-size: 1em;
   line-height: 1.0;
@@ -31,7 +31,7 @@
   color: #17301c;
   display: block;
   margin-bottom: 4px; }
-#start-run input[type="text"] {
+#run_app input[type="text"] {
   height: auto;
   width: 100%;
   display: block;
@@ -41,7 +41,7 @@
   font-size: 0.80em;
   color: #999999;
   box-sizing: border-box; }
-#start-run textarea {
+#run_app textarea {
   height: 70px;
   width: 100%;
   display: block;
@@ -51,11 +51,11 @@
   font-size: 0.80em;
   color: #999999;
   box-sizing: border-box; }
-#start-run .start-button {
+#run_app .start-button {
   display: block;
   text-align: center; }
-#start-run input[type="submit"] {
-  font-size: 2em;
+#run_app input[type="submit"] {
+  font-size: 1.5em;
   height: 60px;
   background: #009572;
   border: none;
@@ -171,9 +171,28 @@
     text-decoration: none;
     font-size: 1.3em; }
 
+.edit_button img, .save_button img {
+  transform: none;
+  width: 40px;
+  top: 10px;
+  right: 10px;
+  position: absolute; }
+
+.edit_run p {
+  width: 20%;
+  display: block;
+  height: 40px;
+  background: #FFF;
+  border: 1px solid; }
+
+.edit_submit {
+  display: block;
+  margin: 0 auto; }
+
 body {
+  position: relative;
   margin: 0;
-  padding: 0;
+  padding-bottom: 100px;
   width: auto;
   background: aliceblue;
   font-family: "Open Sans", Helvetica, Arial, sans-serif; }
@@ -276,11 +295,12 @@ footer {
   height: auto;
   width: 100%;
   display: block;
-  padding: 2%;
+  padding: 20px;
   box-sizing: border-box;
   background-color: #d8dbe2;
   border-top: 2px solid #eca400;
-  bottom: 0%; }
+  position: absolute;
+  bottom: 0; }
   footer .footer-link {
     height: auto;
     width: 32%;

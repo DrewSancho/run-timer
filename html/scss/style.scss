@@ -6,9 +6,14 @@
 
 @import "runs";
 
+@import "runedit";
+
+@import "data";
+
 body{
+	position: relative;
 	margin:0;
-	padding:0;
+	padding-bottom:100px;
 	width:auto;
 	background: aliceblue;
 	font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -135,12 +140,12 @@ footer {
 	height: auto;
 	width: 100%;
 	display: block;
-	padding: 2%;
+	padding: 20px;
 	box-sizing: border-box;
 	background-color: #d8dbe2;
 	border-top: 2px solid #eca400;
-	// position: absolute;
-	bottom: 0%;
+	position: absolute;
+	bottom: 0;
 
 	.footer-link {
 		height: auto;
