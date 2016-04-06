@@ -51,10 +51,17 @@
   font-size: 0.80em;
   color: #999999;
   box-sizing: border-box; }
-#start-run input[type="submit"] {
+#start-run .start-button {
   display: block;
-  width: 50%;
-  height: 70px; }
+  text-align: center; }
+#start-run input[type="submit"] {
+  font-size: 2em;
+  height: 60px;
+  background: #009572;
+  border: none;
+  width: 30%;
+  border-radius: 30px;
+  color: #FFF; }
 
 .run_selector ul {
   padding: 0;
@@ -76,6 +83,11 @@
     .calories a:active, .distances a:active {
       background: #086375;
       color: #ECA400; }
+
+.selected {
+  background: #086375; }
+  .selected a {
+    color: #ECA400; }
 
 .calories {
   border-top-left-radius: 8px;
@@ -105,13 +117,9 @@
         color: #FFF; }
   .run_list ul .run_date {
     float: left; }
-  .run_list ul .miles_bar {
+  .run_list ul .miles_bar, .run_list ul .calories_bar {
     width: 200px;
     background: #ECA400;
-    background: -webkit-linear-gradient(#ECA400, #FFF);
-    background: -o-linear-gradient(#ECA400, #FFF);
-    background: -moz-linear-gradient(#ECA400, #FFF);
-    background: linear-gradient(#ECA400, #FFF);
     display: block;
     height: 100%;
     float: left;
@@ -184,6 +192,7 @@ header {
   margin: 30px 0;
   width: 100%;
   background: #037252;
+  background: linear-gradient(#037252, #3F967D);
   border-radius: 8px; }
   .current_run h1 {
     text-align: center;
