@@ -6,7 +6,7 @@ var RunDataModel = require('./RunDataModel');
 
 var stopwatchModel = require('../../utils/stopwatchModel');
 
-var calorieCalc = require('../../utils/calorieCalc')
+var calorieCalc = require('../../utils/calorieCalc');
 
 var StopwatchView = Backbone.View.extend({
 
@@ -30,7 +30,7 @@ var StopwatchView = Backbone.View.extend({
 
         // var time = this.model.get('time');
         var person = JSON.parse(localStorage.bio);
-        var calories = calorieCalc(person.weight, this.data.runDistance, 
+        var calories = calorieCalc(person.weight, this.data.runDistance,
                     stopwatchModel.get('time'));
 
         var model = new RunDataModel();

@@ -21,10 +21,6 @@ var FooterView = Backbone.View.extend({
     },
     bio: function () {
         window.location.hash = 'bio';
-    },
-    add: function () {
-        window.location.hash = 'add';
-
     }
 });
 
