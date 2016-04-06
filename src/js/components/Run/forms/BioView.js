@@ -20,9 +20,9 @@ var BioView = Backbone.View.extend({
     },
 
     saveChanges: function () {
-        var bioName = this.$('#bioName').val();
-        var bioAge = parseInt(this.$('#bioAge').val());
-        var bioWeight = parseInt(this.$('#bioWeight').val());
+        var bioName = this.$('.bioName').val();
+        var bioAge = parseInt(this.$('.bioAge').val());
+        var bioWeight = parseInt(this.$('.bioWeight').val());
 
         bioModel.set({
             name: bioName,
