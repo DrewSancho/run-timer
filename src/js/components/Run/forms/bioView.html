@@ -1,4 +1,4 @@
-<label for="bioName">Name:</label>
+<!-- <label for="bioName">Name:</label>
 <input type="text" id="bioName" class="bio-input-header" placeholder="name" value="<%= name %>"/>
 
 <label for="bioAge">Age:</label>
@@ -7,4 +7,37 @@
 <label for="bioWeight">Weight:</label>
 <input type="text" id="bioWeight" class="bio-input-header" placeholder="lbs" value="<%= weight %> " />
 
-<button class="bio-save">Save Changes</button>
+<button class="bio-save">Save Changes</button> -->
+
+
+<div id="start-run" class="content-wrapper"></div>
+    <div class="page-form">
+
+        <div class="page-title">
+            <h1>My Data</h1>
+        </div>
+
+        <!-- PAGE FORM -->
+        <div class="page-form">
+
+            <!-- NAME -->
+            <label for="run-name">Name</label>
+            <input type="text" name="run-name" id="run-name" class="bio-input-header bioName" value="<%= name %>"/>
+
+            <!-- DISTANCE -->
+            <label for="run-distance">Age</label>
+            <input type="text" name="run-distance" id="run-distance" class="bio-input-header bioAge" value="<%= age %>"/>
+
+            <!-- NOTES -->
+            <label for="run-notes">Weight</label>
+            <input name="run-notes" id="run-notes" class="bio-input-header bioWieght" placeholder="lbs" value="<%= weight %>"/>
+
+        </div> <!-- END PAGE FORM -->
+
+        <!-- START BUTTON -->
+        <div class="bio-save">
+            <input type="submit" value="Save Changes"/>
+        </div>
+    </div>
+
+</div>
