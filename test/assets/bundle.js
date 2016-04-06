@@ -13356,7 +13356,7 @@ var appView = Backbone.View.extend({
 
 module.exports = appView;
 
-},{"../Events/dispatcher":9,"./HeaderView":5,"./appView.html":6,"backbone":1,"jquery":2,"underscore":3}],5:[function(require,module,exports){
+},{"../Events/dispatcher":8,"./HeaderView":5,"./appView.html":6,"backbone":1,"jquery":2,"underscore":3}],5:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -13381,55 +13381,6 @@ module.exports = "<h1 class=\"header\"> Run Timer</h1>";
 },{}],8:[function(require,module,exports){
 'use strict';
 
-var Backbone = require('backbone');
-
-var EditView = require('./Run/forms/EditView');
-var IndexView = require('./Run/list/IndexView');
-var NewRunPage = require('./Run/forms/NewRunPage');
-var dispatcher = require('./Events/dispatcher');
-var DetailView = require('./Run/list/DetailView');
-
-var indexCollection = require('./Run/list/IndexCollection');
-
-var AppRouter = Backbone.Router.extend({
-    routes: {
-        '': 'index',
-        'create': 'create',
-        'add': 'create',
-        'detail/:id': 'detail',
-        'edit/:id': 'edit'
-    },
-    index: function index() {
-        indexCollection.fetch();
-        dispatcher.trigger('app:show', new IndexView({ collection: indexCollection }));
-    },
-    create: function create() {
-        indexCollection.fetch();
-        dispatcher.trigger('app:show', new NewRunPage({ collection: indexCollection }));
-    },
-    detail: function detail(id) {
-        indexCollection.fetch({
-            success: function success() {
-                var model = indexCollection.find({ id: parseInt(id) });
-                dispatcher.trigger('app:show', new DetailView({ model: model }));
-            }
-        });
-    },
-    edit: function edit(id) {
-        indexCollection.fetch({
-            success: function success() {
-                var model = indexCollection.find({ id: parseInt(id) });
-                dispatcher.trigger('app:show', new EditView({ model: model }));
-            }
-        });
-    }
-});
-
-module.exports = AppRouter;
-
-},{"./Events/dispatcher":9,"./Run/forms/EditView":10,"./Run/forms/NewRunPage":11,"./Run/list/DetailView":14,"./Run/list/IndexCollection":15,"./Run/list/IndexView":16,"backbone":1}],9:[function(require,module,exports){
-'use strict';
-
 var _ = require('underscore');
 var Backbone = require('backbone');
 
@@ -13437,275 +13388,48 @@ var dispatcher = _.extend({}, Backbone.Events);
 
 module.exports = dispatcher;
 
-},{"backbone":1,"underscore":3}],10:[function(require,module,exports){
+},{"backbone":1,"underscore":3}],9:[function(require,module,exports){
 'use strict';
 
+/* eslint-env node, jasmine */
+
+var AppView = require('../js/components/App/AppView');
+var dispatcher = require('../js/components/Events/dispatcher');
 var Backbone = require('backbone');
-var _ = require('underscore');
 
-var EditView = Backbone.View.extend({
-    className: 'editView',
-    template: _.template(require('./editView.html')),
-    events: {
-        'click .submit': 'editRun',
-        'click .cancel': 'formCancel',
-        'keydown': 'onKeydown'
-    },
-    editRun: function editRun() {
-        var runTime = this.$('.runTime').val();
-        var runDate = this.$('.runDate').val();
-        var runNotes = this.$('.runNotes').val();
+describe('AppView', function () {
+    var instance = new AppView();
 
-        this.model.set({
-            runTime: runTime,
-            runDate: runDate,
-            runNotes: runNotes
-        });
+    it('assigns a child HeaderView on init to the `header-slot` propterty', function () {
+        expect(instance.headerView).toBeDefined();
+    });
 
-        this.model.save();
-        window.location.hash = 'detail/' + this.model.get('id');
-    },
-    formCancel: function formCancel() {
-        window.location.hash = 'detail/' + this.model.get('id');
-    },
-    onKeydown: function onKeydown(e) {
-        if (e.keyCode === 13) {
-            this.editRun();
+    instance.render();
+
+    it('inserts template content on render', function () {
+        expect(instance.$el.find('.header-slot, .content-slot').length).toBe(2);
+    });
+
+    it('inserts the child headerView element into the `.header-slot` element', function () {
+        expect(instance.$el.find('.header-slot').length).toBe(1);
+    });
+
+    var childRendered;
+
+    var ChildView = Backbone.View.extend({
+        render: function render() {
+            childRendered = true;
         }
-    },
-    render: function render() {
-        this.$el.html(this.template(this.model.attributes));
-    }
+    });
+
+    var view = new ChildView();
+
+    dispatcher.trigger('app:show', view);
+
+    it('uses the `app:show` event to render a view instance and insert it into `.content-slot`', function () {
+        expect(instance.$el.find('.content-slot').children().first()[0]).toBe(view.el);
+        expect(childRendered).toBe(true);
+    });
 });
 
-module.exports = EditView;
-
-},{"./editView.html":12,"backbone":1,"underscore":3}],11:[function(require,module,exports){
-'use strict';
-
-var Backbone = require('backbone');
-var _ = require('underscore');
-var $ = require('jquery');
-
-var NewRunPage = Backbone.View.extend({
-
-    className: 'newRunPage',
-
-    events: {
-        'click .submit': 'createRun',
-        'click .cancel': 'formCancel',
-        'keydown': 'onKeydown'
-    },
-
-    template: _.template(require('./newRunPage.html')),
-
-    render: function render() {
-        this.$el.html(this.template());
-    },
-
-    formCancel: function formCancel() {
-        // go back to the original screen
-        window.history.back();
-    },
-
-    createRun: function createRun() {
-        // get the values from the inputs, merge them into an object
-        // and push the object to the run collection
-        var runTime = this.$('.runTime').val();
-        var runDate = this.$('.runDate').val();
-        var runNotes = this.$('.runNotes').val();
-
-        this.collection.create({
-            runTime: runTime,
-            runDate: runDate,
-            runNotes: runNotes
-        });
-
-        // then, change the hash to 'index' so the router will navigate
-        // to the index
-        window.location.hash = '';
-    },
-
-    onKeydown: function onKeydown(e) {
-        if (e.keyCode === 13) {
-            this.createRun();
-        }
-    }
-});
-module.exports = NewRunPage;
-
-},{"./newRunPage.html":13,"backbone":1,"jquery":2,"underscore":3}],12:[function(require,module,exports){
-module.exports = "<h1> Edit Run </h1>\n<input class=\"runTime\" value=\"<%= this.model.get('runTime') %>\">\n<input class=\"runDate\" type=\"date\" value=\"<%= this.model.get('runDate') %>\">\n<input class=\"runNotes\" value=\"<%= this.model.get('runNotes') %>\">\n<button class=\"cancel\"> Cancel </button>\n<button class=\"submit\"> Save </button>";
-
-},{}],13:[function(require,module,exports){
-module.exports = "<h1> New Run </h1>\n<input class=\"runTime\" placeholder=\"Run Time\">\n<input class=\"runDate\" type=\"date\">\n<input class=\"runNotes\" placeholder=\"Race Notes\">\n<button class=\"cancel\"> Cancel </button>\n<button class=\"submit\"> Save </button>";
-
-},{}],14:[function(require,module,exports){
-'use strict';
-
-var Backbone = require('backbone');
-var _ = require('underscore');
-var $ = require('jquery');
-
-var DetailView = Backbone.View.extend({
-    className: 'DetailView',
-
-    template: _.template(require('./detailView.html')),
-
-    render: function render() {
-        this.$el.html(this.template(this.model.attributes));
-    },
-
-    events: {
-        'click .back': 'goBack',
-        'click .destroy': 'deleteRun',
-        'click .edit': 'editRun'
-    },
-
-    goBack: function goBack() {
-        window.location.hash = '';
-    },
-    deleteRun: function deleteRun(id) {
-        this.model.destroy();
-        window.location.hash = '';
-    },
-    editRun: function editRun(id) {
-        window.location.hash = 'edit/' + this.model.get('id');
-    }
-});
-
-module.exports = DetailView;
-
-},{"./detailView.html":19,"backbone":1,"jquery":2,"underscore":3}],15:[function(require,module,exports){
-'use strict';
-
-var Backbone = require('backbone');
-var RunDataModel = require('./RunDataModel');
-
-var IndexCollection = Backbone.Collection.extend({
-    model: RunDataModel,
-    url: '/api/runs'
-});
-
-module.exports = new IndexCollection();
-
-},{"./RunDataModel":18,"backbone":1}],16:[function(require,module,exports){
-'use strict';
-
-var Backbone = require('backbone');
-var _ = require('underscore');
-var $ = require('jquery');
-
-var ListItemView = require('./ListItemView');
-
-var IndexView = Backbone.View.extend({
-    className: 'IndexView',
-
-    template: _.template(require('./indexView.html')),
-    initialize: function initialize() {
-        this.children = [];
-        this.render();
-        this.listenTo(this.collection, 'sync destroy', this.render);
-    },
-    render: function render() {
-        var that = this;
-
-        this.removeChildren();
-
-        this.$el.html(this.template());
-
-        this.children = this.collection.map(function (model) {
-            return new ListItemView({ model: model });
-        });
-
-        this.children.forEach(function (view) {
-            that.$el.append(view.$el);
-            view.render();
-        });
-    },
-    events: {
-        'click .add': 'formCreate'
-    },
-    formCreate: function formCreate() {
-        window.location.hash = 'create';
-    },
-    removeChildren: function removeChildren() {
-        this.children.forEach(function (view) {
-            view.remove();
-        });
-    },
-    remove: function remove() {
-        this.removeChildren();
-        Backbone.View.prototype.remove.call(this);
-    }
-});
-
-module.exports = IndexView;
-
-},{"./ListItemView":17,"./indexView.html":20,"backbone":1,"jquery":2,"underscore":3}],17:[function(require,module,exports){
-'use strict';
-
-var Backbone = require('backbone');
-var _ = require('underscore');
-var $ = require('jquery');
-
-var ListItemView = Backbone.View.extend({
-
-    events: {
-        'click': 'onClick'
-    },
-
-    onClick: function onClick() {
-        window.location.hash = 'detail/' + this.model.get('id');
-    },
-
-    template: _.template(require('./listItemView.html')),
-
-    render: function render() {
-        this.$el.html(this.template(this.model.attributes));
-    }
-
-});
-
-module.exports = ListItemView;
-
-},{"./listItemView.html":21,"backbone":1,"jquery":2,"underscore":3}],18:[function(require,module,exports){
-'use strict';
-
-var Backbone = require('backbone');
-
-var RunDataModel = Backbone.Model.extend({});
-
-module.exports = RunDataModel;
-
-},{"backbone":1}],19:[function(require,module,exports){
-module.exports = "<h2 class=\"title\"> My Run</h2>\n    <div class=\"runDate\"> <%= runDate %> </div>\n    <div class=\"runTime\"> <%= runTime %> </div>\n    <p class=\"runNotes\"> <%= runNotes %> </p>\n    <div class=\"detailNav\">\n    <button class=\"back\"> Back </button>\n    <button class=\"destroy\"> Delete </button>\n    <button class=\"edit\"> Edit </button>\n</div>";
-
-},{}],20:[function(require,module,exports){
-module.exports = "<button class='add'> + </button>";
-
-},{}],21:[function(require,module,exports){
-module.exports = "<div class='runDate'> <%= runDate %> </div>\n<div class='runTime'> <%= runTime %> </div>\n<hr>";
-
-},{}],22:[function(require,module,exports){
-'use strict';
-
-var Backbone = require('backbone');
-
-var dispatch = require('./components/Events/dispatcher');
-var AppView = require('./components/App/AppView');
-var AppRouter = require('./components/AppRouter');
-
-var appView = new AppView();
-
-appView.render();
-
-var router = new AppRouter();
-
-dispatch.trigger('change', 'spider');
-
-document.body.appendChild(appView.el);
-
-Backbone.history.start();
-
-},{"./components/App/AppView":4,"./components/AppRouter":8,"./components/Events/dispatcher":9,"backbone":1}]},{},[22]);
+},{"../js/components/App/AppView":4,"../js/components/Events/dispatcher":8,"backbone":1}]},{},[9]);

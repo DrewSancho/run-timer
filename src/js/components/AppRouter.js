@@ -1,12 +1,12 @@
 var Backbone = require('backbone');
 
-var EditView = require('./EditView');
-var IndexView = require('./IndexView');
-var NewRunPage = require('./NewRunPage');
-var dispatcher = require('./dispatcher');
-var DetailView = require('./DetailView');
+var EditView = require('./Run/forms/EditView');
+var IndexView = require('./Run/list/IndexView');
+var NewRunPage = require('./Run/forms/NewRunPage');
+var dispatcher = require('./Events/dispatcher');
+var DetailView = require('./Run/list/DetailView');
 
-var indexCollection = require('./IndexCollection');
+var indexCollection = require('./Run/list/IndexCollection');
 
 var AppRouter = Backbone.Router.extend({
     routes: {

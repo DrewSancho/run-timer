@@ -3,8 +3,7 @@ var _ = require('underscore');
 var $ = require('jquery');
 
 var HeaderView = require('./HeaderView');
-
-var dispatcher = require('./dispatcher');
+var dispatcher = require('../Events/dispatcher');
 
 var appView = Backbone.View.extend({
 

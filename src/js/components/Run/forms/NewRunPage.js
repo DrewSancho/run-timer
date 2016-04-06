@@ -20,7 +20,7 @@ var NewRunPage = Backbone.View.extend({
 
     formCancel: function () {
         // go back to the original screen
-        window.location.hash = '';
+        window.history.back();
     },
 
     createRun: function () {

@@ -1,7 +1,7 @@
 var Backbone = require('backbone');
 
-var dispatch = require('./components/dispatcher');
-var AppView = require('./components/AppView');
+var dispatch = require('./components/Events/dispatcher');
+var AppView = require('./components/App/AppView');
 var AppRouter = require('./components/AppRouter');
 
 var appView = new AppView();

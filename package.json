@@ -7,13 +7,15 @@
     "dev": "npm run serve & npm run watch",
     "serve": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cp node_modules/normalize.css/normalize.css src/scss/components/_normalize.scss",
+    "postinstall": "cp node_modules/normalize.css/normalize.css src/scss/_normalize.scss && cp node_modules/jasmine-core/lib/jasmine-core/jasmine.js node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js node_modules/jasmine-core/lib/jasmine-core/boot.js node_modules/jasmine-core/lib/jasmine-core/jasmine.css test",
     "watch:js": "watchify src/js/main.js -t [ babelify --presets [ es2015 ] ] -o public/assets/bundle.js",
     "watch:css": "sass --watch src/scss:public/assets",
     "build:js": "browserify src/js/main.js -t [ babelify --presets [ es2015 ] ] | uglifyjs > public/assets/bundle.js",
     "build:css": "sass src/scss/main.scss public/assets/main.css",
     "build": "npm run build:js && npm run build:css",
-    "watch": "npm run watch:js & npm run watch:css"
+    "watch": "npm run watch:js & npm run watch:css",
+    "test": "npm run build:test && open test/spec-runner.html",
+    "build:test": "browserify src/test/main.js -t [ babelify --presets [ es2015 ] ] -o test/assets/bundle.js && sass src/scss/main.scss test/assets/main.css"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +26,7 @@
     "body-parser": "^1.15.0",
     "browserify": "^13.0.0",
     "express": "^4.13.4",
+    "jasmine": "^2.4.1",
     "jquery": "^2.2.2",
     "normalize.css": "^4.0.0",
     "stringify": "^5.1.0",
@@ -31,6 +34,8 @@
     "watchify": "^3.7.0"
   },
   "browserify": {
-    "transform": [ "stringify" ]
+    "transform": [
+      "stringify"
+    ]
   }
 }
