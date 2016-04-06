@@ -15,7 +15,8 @@ var BioView = Backbone.View.extend({
     },
 
     events: {
-        'click .bio-save': 'saveChanges'
+        'click .bio-save': 'saveChanges',
+        'keydown': 'onKeyDown'
     },
 
     saveChanges: function () {
@@ -29,7 +30,11 @@ var BioView = Backbone.View.extend({
             weight: bioWeight
         });
         window.location.hash = '';
-        console.log(localStorage);
+    },
+    onKeyDown: function (e) {
+        if (e.keyCode === 13) {
+            this.saveChanges();
+        }
     }
 
 });
