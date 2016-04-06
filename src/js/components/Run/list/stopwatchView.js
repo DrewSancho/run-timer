@@ -36,6 +36,7 @@ var StopwatchView = Backbone.View.extend({
         model.save({  // HTTP POST
             runDate: this.data.runDate,
             runNotes: this.data.runNotes,
+            runDistance: this.data.runDistance,
             runCalories: calories,
             time: stopwatchModel.get('time'),
             success: completeXfer
