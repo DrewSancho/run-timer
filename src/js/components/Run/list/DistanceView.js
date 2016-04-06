@@ -8,6 +8,8 @@ var DistanceView = Backbone.View.extend({
 
     template: _.template(require('./distanceView.html')),
 
+    
+
 });
 
 module.exports = DistanceView;
