@@ -19,6 +19,9 @@ app.post('/api/runs', function (req, res) {
         runTime: req.body.runTime,
         runDate: req.body.runDate,
         runNotes: req.body.runNotes,
+        runDistance: req.body.runDistance,
+        runName: req.body.runName,
+        runCalories: req.body.runCalories,
         id: ++id
     };
     data.push(item);
