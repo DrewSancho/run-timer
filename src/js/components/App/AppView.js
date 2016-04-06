@@ -2,7 +2,7 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
 
-var HeaderView = require('./HeaderView');
+var HeaderView = require('../Header/HeaderView');
 var dispatcher = require('../Events/dispatcher');
 
 var appView = Backbone.View.extend({
