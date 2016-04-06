@@ -1,14 +1,3 @@
-.current_run{
-	display: block;
-
-	width:100%;
-	height:150px;
-
-	.timer{
-
-	}
-}
-
 .run_selector{
 
 	ul{
@@ -32,6 +21,11 @@
     	color: #000;
     	display: block;
     	padding: 10px;
+
+    	&:active{
+    		background: #086375;
+    		color:#ECA400;
+    	}
     }
 }
 
@@ -61,10 +55,14 @@
 		    width: 100%;
     		height: 25px;
     		line-height: 25px;
-    		padding: 20px 0;
+    		padding: 20px 0 20px 5px;
 
     		&:nth-child(even){
 			background: #037252;
+
+				.run_date{
+					color:#FFF;
+				}
 			}
 		}
 
@@ -75,6 +73,11 @@
 		.miles_bar{
 			width: 200px;
     		background: #ECA400;
+    		background: -webkit-linear-gradient(#ECA400, #FFF);
+    		background: -o-linear-gradient(#ECA400, #FFF);
+    		background: -moz-linear-gradient(#ECA400, #FFF);
+    		background: linear-gradient(#ECA400, #FFF);
+
     		display: block;
     		height: 100%;
     		float: left;
