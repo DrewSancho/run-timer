@@ -4,6 +4,8 @@
 
 @import "distance";
 
+@import "runs";
+
 body{
 	margin:0;
 	padding:0;
@@ -137,7 +139,7 @@ footer {
 	box-sizing: border-box;
 	background-color: #d8dbe2;
 	border-top: 2px solid #eca400;
-	position: absolute;
+	// position: absolute;
 	bottom: 0%;
 
 	.footer-link {
