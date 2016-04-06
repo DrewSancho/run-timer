@@ -7,7 +7,7 @@ var CalorieView = Backbone.View.extend({
     className: 'calorieView',
 
     events: {
-        'click .calorie-run': 'onClick'
+        'click': 'onClick'
     },
 
     onClick: function () {
