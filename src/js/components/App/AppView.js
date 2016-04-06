@@ -16,7 +16,6 @@ var appView = Backbone.View.extend({
         this.footerView = new FooterView();
         this.listenTo(dispatcher, 'app:show', this.show);
         this.listenTo(dispatcher, 'app:start', this.showTimer);
-        this.showTimer();
     },
 
     render: function () {

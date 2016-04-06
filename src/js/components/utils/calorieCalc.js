@@ -47,3 +47,5 @@ calories = getMETS(distance, time) * weight * time/60;
 return calories;
     
 }
+
+module.exports = calorieCalc;

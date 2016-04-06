@@ -14,8 +14,8 @@ var StopwatchView = Backbone.View.extend({
 
     initialize: function (options) {
         this.data = options.data;
-        this.listenTo(this.model, 'change', this.render);
-        // startTimer();
+        this.listenTo(stopwatchModel, 'change', this.render);
+        stopwatchModel.startTimer();
     },
 
     events: {
@@ -26,7 +26,7 @@ var StopwatchView = Backbone.View.extend({
     onStopButton: function () {
         var _this = this;
 
-        this.model.stopTimer();
+        stopwatchModel.stopTimer();
 
         // var time = this.model.get('time');
         var person = JSON.parse(localStorage.bio);
@@ -51,7 +51,13 @@ var StopwatchView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(this.template());
+
+        var ticks = stopwatchModel.get('time');
+        this.$el.html(this.template({
+            hours: Math.floor(ticks / 3600),
+            minutes: Math.floor(ticks % 3600 / 60),
+            seconds: ticks % 60
+        }));
     }
 });
 
