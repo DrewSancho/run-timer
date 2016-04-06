@@ -3,6 +3,7 @@ var _ = require('underscore');
 var $ = require('jquery');
 
 var HeaderView = require('../Header/HeaderView');
+var FooterView = require('../Footer/FooterView');
 var dispatcher = require('../Events/dispatcher');
 
 var appView = Backbone.View.extend({
@@ -11,16 +12,20 @@ var appView = Backbone.View.extend({
 
     initialize: function () {
         this.headerView = new HeaderView();
+        this.footerView = new FooterView();
         this.listenTo(dispatcher, 'app:show', this.show);
     },
 
     render: function () {
         this.$el.html(this.template());
         this.$('.header-slot').append(this.headerView.$el);
+        this.$('.footer-slot').append(this.footerView.$el);
         this.headerView.render();
+        this.footerView.render();
     },
     remove: function () {
         this.headerView.remove();
+        this.footerView.remove();
         Backbone.View.prototype.remove.call(this);
     },
     show: function (view) {
