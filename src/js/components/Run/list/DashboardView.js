@@ -46,11 +46,9 @@ var IndexView = Backbone.View.extend({
     distanceView: function (e) {
         var _this = this;
         if (e.target.matches('.distance')) {
-            if (e.target.matches('.calories')) {
-                _this.children = _this.collection.map(function (model) {
-                    return new DistanceView({ model: model });
-                });
-            }
+            _this.children = _this.collection.map(function (model) {
+                return new DistanceView({ model: model });
+            });
         }
     },
     removeChildren: function () {
