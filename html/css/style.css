@@ -1,3 +1,19 @@
+/* CLEARFIX */
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  zoom: 1;
+  /* ie 6/7 */ }
+
+.clear {
+  clear: both; }
+
 .page-title h1 {
   font-size: 2em;
   font-weight: 400;
@@ -51,7 +67,7 @@
   display: block;
   float: left;
   font-size: 1.3em;
-  width: 45%;
+  width: 49%;
   border: solid 1px #086375; }
   .calories a, .distances a {
     text-decoration: none;
@@ -70,6 +86,33 @@
   border-bottom-right-radius: 8px;
   margin-left: 0;
   padding-left: 0; }
+
+.run_list ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none; }
+  .run_list ul li {
+    display: block;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    padding: 20px 0; }
+    .run_list ul li:nth-child(even) {
+      background: #037252; }
+  .run_list ul .run_date {
+    float: left; }
+  .run_list ul .miles_bar {
+    width: 200px;
+    background: #ECA400;
+    display: block;
+    height: 100%;
+    float: left;
+    margin-left: 10px;
+    padding-right: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; }
+  .run_list ul .miles {
+    float: right; }
 
 body {
   margin: 0;
@@ -103,6 +146,48 @@ header {
   height: auto;
   width: 90%;
   margin: 0% auto; }
+
+/* Current Run Overlay */
+.current_run {
+  display: block;
+  margin: 30px 0;
+  width: 100%;
+  background: #037252; }
+  .current_run h1 {
+    text-align: center;
+    margin: 0;
+    color: #ECA400;
+    padding: 5px 0; }
+
+.timer {
+  display: block;
+  padding: 20px;
+  text-align: center;
+  background: aliceblue;
+  width: 40%;
+  margin: 0 auto;
+  border-radius: 20px;
+  font-size: 1.4em;
+  font-weight: 600; }
+
+.run_buttons {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center; }
+
+.pause, .stop {
+  display: inline-block;
+  margin: 8px;
+  border: 1px solid;
+  background: #086375;
+  font-size: 1.3em;
+  width: 30%; }
+  .pause a, .stop a {
+    text-decoration: none;
+    color: #08DBE2;
+    padding: 6px 10px;
+    display: block; }
 
 footer {
   height: auto;
