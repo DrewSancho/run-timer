@@ -6,6 +6,8 @@ var RunDataModel = require('./RunDataModel');
 
 var stopwatchModel = require('../../utils/stopwatchModel');
 
+var calorieCalc = require('../../utils/calorieCalc')
+
 var StopwatchView = Backbone.View.extend({
 
     template: _.template(require('./stopwatchView.html')),
@@ -27,9 +29,9 @@ var StopwatchView = Backbone.View.extend({
         this.model.stopTimer();
 
         // var time = this.model.get('time');
-        var calories = 10000;
-        // calorieCalc(this.INCOMPLETE!!!!!)
-        // weight, distance, time
+        var person = JSON.parse(localStorage.bio);
+        var calories = calorieCalc(person.weight, this.data.runDistance, 
+                    stopwatchModel.get('time'));
 
         var model = new RunDataModel();
 
@@ -44,7 +46,7 @@ var StopwatchView = Backbone.View.extend({
 
         function completeXfer () {
             _this.remove();
-            window.location.hash = '/detail' + this.model.get('id');
+            window.location.hash = '/detail' + model.get('id');
         }
     },
 

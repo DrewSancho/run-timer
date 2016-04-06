@@ -2,12 +2,14 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
 
+var dispatcher = require('../../Events/dispatcher');
+
 var NewRunPage = Backbone.View.extend({
 
     className: 'newRunPage',
 
     events: {
-        'click .submit': 'createRun',
+        'click .startTimer': 'createRun',
         'click .cancel': 'formCancel',
         'keydown': 'onKeydown'
     },
