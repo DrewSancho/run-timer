@@ -1,3 +1,10 @@
+body {
+  margin: 0;
+  width: 600px; }
+
+img {
+  display: block; }
+
 header {
   background: #12301C;
   /* For browsers that do not support gradients */
@@ -9,15 +16,27 @@ header {
   /* For Firefox 3.6 to 15 */
   background: linear-gradient(#12301C, #009572);
   /* Standard syntax */
-  border-bottom: solid 2px #ECA400; }
+  border-bottom: solid 2px #ECA400;
+  height: 100px; }
   header .back {
     display: none; }
 
-footer .home {
-  background: url(../img/home.png); }
-footer .runs {
-  background: url(../img/shoe.png); }
-footer .data {
-  background: url(../img/graph.png); }
+.current_run {
+  display: block;
+  width: 100%;
+  height: 150px; }
+
+footer .navigation {
+  padding: 0;
+  margin: 0; }
+  footer .navigation .home {
+    background: url(../img/runtimer-home_26x20@3x.png);
+    background-repeat: no-repeat; }
+  footer .navigation .runs {
+    background: url(../img/runtimer-run_26x12@3x.png);
+    background-repeat: no-repeat; }
+  footer .navigation .data {
+    background: url(../img/runtimer-data_26x20@3x.png);
+    background-repeat: no-repeat; }
 
 /*# sourceMappingURL=style.css.map */
