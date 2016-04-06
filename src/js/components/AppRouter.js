@@ -5,6 +5,7 @@ var DashboardView = require('./Run/list/DashboardView');
 var NewRunPage = require('./Run/forms/NewRunPage');
 var dispatcher = require('./Events/dispatcher');
 var DetailView = require('./Run/list/DetailView');
+var BioView
 
 var indexCollection = require('./Run/list/IndexCollection');
 
@@ -13,7 +14,9 @@ var AppRouter = Backbone.Router.extend({
         '': 'index',
         'add': 'create',
         'detail/:id': 'detail',
-        'edit/:id': 'edit'
+        'edit/:id': 'edit',
+        'runs/': 'runs',
+        'bio': 'bio'
     },
     index: function () {
         indexCollection.fetch();
@@ -38,6 +41,16 @@ var AppRouter = Backbone.Router.extend({
                 dispatcher.trigger('app:show', new EditView({ model: model }));
             }
         });
+    },
+
+    runs: function () {
+        indexCollection.fetch({
+
+        });
+    },
+
+    bio: function () {
+        dispatcher.trigger('app:show', new BioView());
     }
 });
 
