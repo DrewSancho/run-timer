@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  width: 600px; }
+  width: 600px;
+  background: aliceblue; }
 
 img {
   display: block; }
@@ -17,9 +18,12 @@ header {
   background: linear-gradient(#12301C, #009572);
   /* Standard syntax */
   border-bottom: solid 2px #ECA400;
-  height: 100px; }
+  height: 110px; }
   header .back {
     display: none; }
+  header .logo img {
+    margin: 0 auto;
+    padding: 28px 0; }
 
 .current_run {
   display: block;
@@ -30,13 +34,10 @@ footer .navigation {
   padding: 0;
   margin: 0; }
   footer .navigation .home {
-    background: url(../img/runtimer-home_26x20@3x.png);
     background-repeat: no-repeat; }
   footer .navigation .runs {
-    background: url(../img/runtimer-run_26x12@3x.png);
     background-repeat: no-repeat; }
   footer .navigation .data {
-    background: url(../img/runtimer-data_26x20@3x.png);
     background-repeat: no-repeat; }
 
 /*# sourceMappingURL=style.css.map */

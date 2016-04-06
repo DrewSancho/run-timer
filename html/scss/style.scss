@@ -1,6 +1,7 @@
 body{
 	margin:0;
 	width:600px;
+	background: aliceblue;
 }
 
 img{
@@ -15,7 +16,7 @@ header{
     background: linear-gradient(#12301C, #009572); /* Standard syntax */
 
     border-bottom: solid 2px #ECA400;
-    height: 100px;
+    height: 110px;
 
     .back{
     	display: none;
@@ -30,6 +31,11 @@ header{
     	// position: relative;
     	// left: 28%;
     	// top: 25px;
+
+    	img{
+    		margin: 0 auto;
+    		padding: 28px 0;
+    	}
     }
 }
 
@@ -52,17 +58,17 @@ footer{
 		margin:0;
 
 		.home{
-			background: url(../img/runtimer-home_26x20@3x.png);
+			// background: url(../img/runtimer-home_26x20@3x.png);
 			background-repeat:no-repeat;
 		}
 
 		.runs{
-			background: url(../img/runtimer-run_26x12@3x.png);
+			// background: url(../img/runtimer-run_26x12@3x.png);
 			background-repeat:no-repeat;
 		}
 
 		.data{
-			background: url(../img/runtimer-data_26x20@3x.png);
+			// background: url(../img/runtimer-data_26x20@3x.png);
 			background-repeat:no-repeat;
 		}
 	}
