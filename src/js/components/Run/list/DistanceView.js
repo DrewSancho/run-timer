@@ -8,7 +8,13 @@ var DistanceView = Backbone.View.extend({
 
     template: _.template(require('./distanceView.html')),
 
-    
+    events: {
+        'click': 'onClick'
+    },
+
+    onClick: function () {
+        window.location.hash = 'details/' + this.model.get('id');
+    }
 
 });
 
