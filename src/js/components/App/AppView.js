@@ -5,7 +5,7 @@ var $ = require('jquery');
 var HeaderView = require('../Header/HeaderView');
 var FooterView = require('../Footer/FooterView');
 var dispatcher = require('../Events/dispatcher');
-var StopWatchview = require('../Run/list/stopWatchview');
+var StopWatchview = require('../Run/list/stopwatchview');
 
 var appView = Backbone.View.extend({
 
