@@ -1,75 +1,79 @@
+@import "start";
+
+@import "distance";
+
 body{
 	margin:0;
-	width:600px;
+	padding:0;
+	width:auto;
 	background: aliceblue;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
-img{
+img {
 	display: block;
 }
 
-header{
-	background: #12301C; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#12301C, #009572); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#12301C, #009572); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#12301C, #009572); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#12301C, #009572); /* Standard syntax */
+header {
+	height: 60px;
+	width: 100%;
+	background: #009572;
+    background: -webkit-linear-gradient(#009572, #086375);
+    background: -o-linear-gradient(#009572, #086375);
+    background: -moz-linear-gradient(#009572, #086375);
+    background: linear-gradient(#009572, #086375);
+    border-bottom: 4px solid #eca400;
+    margin-bottom: 40px;
 
-    border-bottom: solid 2px #ECA400;
-    height: 110px;
-
-    .back{
-    	display: none;
-    }
-
-    .logo{
-    	// background: url(../img/runtimer-logo_94x19@3x.png);
-    	// background-repeat: no-repeat;
-    	// display: block;
-    	// width: 282px;
-    	// height: 57px;
-    	// position: relative;
-    	// left: 28%;
-    	// top: 25px;
-
-    	img{
-    		margin: 0 auto;
-    		padding: 28px 0;
-    	}
+    img {
+    	height: auto;
+    	width: 40%;
+    	margin: 0% auto;
+    	position: relative;
+    	top: 50%;
+    	transform: translateY(-50%);
     }
 }
+.content-wrapper {
+	height: auto;
+	width: 90%;
+	margin: 0% auto;
+}
 
-.current_run{
+footer {
+	height: auto;
+	width: 100%;
 	display: block;
+	padding: 2%;
+	box-sizing: border-box;
+	background-color: #d8dbe2;
+	border-top: 2px solid #eca400;
+	position: absolute;
+	bottom: 0%;
 
-	width:100%;
-	height:150px;
+	.footer-link {
+		height: auto;
+		width: 32%;
+		// margin: 2% 0%;
+		display: inline-block;
 
-	.timer{
-
-	}
-}
-
-footer{
-
-	.navigation{
-
-		padding:0;
-		margin:0;
-
-		.home{
-			// background: url(../img/runtimer-home_26x20@3x.png);
-			background-repeat:no-repeat;
+		img {
+			height: 20px;
+			width: auto;
+			margin: 0% auto;
+			margin-bottom: 2px;
+			vertical-align: middle;
 		}
-
-		.runs{
-			// background: url(../img/runtimer-run_26x12@3x.png);
-			background-repeat:no-repeat;
+		a {
+			color: #333333;
+			text-decoration: none;
 		}
-
-		.data{
-			// background: url(../img/runtimer-data_26x20@3x.png);
-			background-repeat:no-repeat;
+		h3 {
+			font-size: 0.80em;
+			font-weight: 400;
+			text-align: center;
+			text-transform: uppercase;
+			margin-bottom: 0%;
 		}
 	}
 }

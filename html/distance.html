@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-		<title>Start Run</title>
+		<title>Run Distances</title>
 
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,31 +27,64 @@
 		</header>
 
 		<!-- CONTENT WRAPPER -->
-		<div id="start-run" class="content-wrapper">
+		<main id="start-run" class="content-wrapper">
 			
 			<!-- PAGE TITLE -->
 			<div class="page-title">
-				<h1>Start Run</h1>
+				<h1>Run Distances</h1>
 			</div>
 
-			<!-- PAGE FORM -->
-			<div class="page-form">
+			<!-- CURRENT RUN OVERLAY -->
+			<section class="current_run">
+			
+				<h1>Current Run</h1>
+				<div class="timer">00:14:30</div>
+				<ul class="run_buttons">
+					<li class="pause"><a href="#">PAUSE</a></li>
+					<li class="stop"><a href="#">STOP</a></li>
+				</ul>
+			
+			</section>
 
-				<!-- NAME -->
-				<label for="run-name">Name</label>
-				<input type="text" name="run-name" id="run-name" value="Where are you going today?"/>
+			<!-- DISTANCE/CALORIES SELECTOR -->
 
-				<!-- DISTANCE -->
-				<label for="run-distance">Distance</label>
-				<input type="text" name="run-distance" id="run-distance" value="How far would you like to run?"/>
+			<section class="run_selector">
+			
+				<ul>
+					<li class="calories"><a href="#">Calories Burned</a></li>
+					<li class="distances"><a href="#">Distances</a></li>
+				</ul>
+			
+			</section>
 
-				<!-- NOTES -->
-				<label for="run-notes">Notes</label>
-				<textarea name="run-notes" id="run-notes" placeholder="Enter any notes about your route or weather conditions."></textarea>
+			<!-- LIST OF RUNS BY DISTANCE -->
 
-			</div> <!-- END PAGE FORM -->
+			<section class="run_list">
+				<ul>
+					<li>
+						<span class="run_date">12/18/16</span>
+						<div class="miles_bar">6.2 miles</div>
+					</li>
+					<li>
+						<span class="run_date">12/16/16</span>
+						<div class="miles_bar">3.1 miles</div>
+					</li>
+					<li>
+						<span class="run_date">12/11/16</span>
+						<div class="miles_bar">4.4 miles</div>
+					</li>
+					<li>
+						<span class="run_date">12/04/16</span>
+						<div class="miles_bar">2.8 miles</div>
+					</li>
+					<li>
+						<span class="run_date">11/28/16</span>
+						<div class="miles_bar">5.9 miles</div>
+					</li>
+				</ul>
+			</section>
 
-		</div> <!-- END CONTENT-WRAPPER -->
+		</main> <!-- END CONTENT-WRAPPER -->
 
 		<!-- FOOTER -->
 			<footer>
