@@ -16,7 +16,7 @@ var AppRouter = Backbone.Router.extend({
         'add': 'create',
         'detail/:id': 'detail',
         'edit/:id': 'edit',
-        'runs/': 'runs',
+        'runs': 'runs',
         'bio': 'bio'
     },
     index: function () {
@@ -51,7 +51,6 @@ var AppRouter = Backbone.Router.extend({
             }
         });
     },
-  
     bio: function () {
         indexCollection.fetch({
             success: function () {
