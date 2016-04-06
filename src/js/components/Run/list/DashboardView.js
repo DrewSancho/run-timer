@@ -8,7 +8,7 @@ var DistanceView = require('./DistanceView');
 var IndexView = Backbone.View.extend({
     className: 'IndexView',
 
-    template: _.template(require('./indexView.html')),
+    template: _.template(require('./dashboardView.html')),
     initialize: function () {
         this.children = [];
         this.render();
@@ -21,34 +21,30 @@ var IndexView = Backbone.View.extend({
 
         this.$el.html(this.template());
 
-        // this.children = this.collection.map(function (model) {
-        //     return new ListItemView({ model: model });
-        // });
-
         this.children.forEach(function (view) {
             that.$el.append(view.$el);
             view.render();
         });
     },
     events: {
-        'click .calories': 'calorieView',
+        'click .calories': 'showCalorieView',
         'click .distance': 'distanceView'
     },
-    calorieView: function (e) {
-        var _this = this;
-        if (e.target.matches('.calories')) {
-            _this.children = _this.collection.map(function (model) {
-                return new CalorieView({ model: model });
-            });
-        }
+    showCalorieView: function (e) {
+        this.show(new CalorieView({ collection: this.collection }));
     },
-    distanceView: function (e) {
-        var _this = this;
-        if (e.target.matches('.distance')) {
-            _this.children = _this.collection.map(function (model) {
-                return new DistanceView({ model: model });
-            });
+    showDistanceView: function (e) {
+        this.show(new DistanceView({ collection: this.collection }));
+    },
+    show: function (view) {
+        if (this.child) {
+            this.child.remove();
         }
+
+        this.child = view;
+
+        view.render();
+        this.$('.child-slot').append(view.$el);
     },
     removeChildren: function () {
         this.children.forEach(function (view) {
