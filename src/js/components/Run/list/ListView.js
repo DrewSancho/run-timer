@@ -1,16 +1,16 @@
 var Backbone = require('backbone');
-var _ = require('underscore');
 var $ = require('jquery');
 
-var DistanceView = require('./DistanceView');
+var ListItemView = require('./ListItemView');
 
-var DistanceListView = Backbone.View.extend({
+var ListView = Backbone.View.extend({
 
-    className: 'distanceList',
+    className: 'runList',
 
     initialize: function () {
         this.childViews = [];
     },
+
     render: function () {
         var _this = this;
 
@@ -21,7 +21,7 @@ var DistanceListView = Backbone.View.extend({
         });
 
         this.childViews = this.collection.map(function (model) {
-            return new DistanceView({ model: model });
+            return new ListItemView({ model: model });
         });
 
         this.childViews.forEach(function (view) {
@@ -29,6 +29,7 @@ var DistanceListView = Backbone.View.extend({
             _this.$el.append(view.$el);
         });
     }
+
 });
 
-module.exports = DistanceListView;
+module.exports = ListView;
