@@ -1,0 +1,149 @@
+// RUN TIMER APP
+// START RUN PAGE STYLING
+
+* {
+	margin: 0%;
+	padding: 0%;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+img {
+	display: block;
+}
+header {
+	height: 60px;
+	width: 100%;
+	background: #009572;
+    background: -webkit-linear-gradient(#009572, #086375);
+    background: -o-linear-gradient(#009572, #086375);
+    background: -moz-linear-gradient(#009572, #086375);
+    background: linear-gradient(#009572, #086375);
+    border-bottom: 4px solid #eca400;
+    margin-bottom: 40px;
+
+    img {
+    	height: auto;
+    	width: 40%;
+    	margin: 0% auto;
+    	position: relative;
+    	top: 50%;
+    	transform: translateY(-50%);
+    }
+}
+.content-wrapper {
+	height: auto;
+	width: 80%;
+	margin: 0% auto;
+}
+.start-button {
+	input[type="submit"] {
+		height: auto;
+		width: 50%;
+		display: block;
+		margin: 0% auto;
+		padding: 3% 6%;
+		box-sizing: border-box;
+		position: absolute;
+		left: 25%;
+		bottom: 80px;
+		background-color: #009572;
+		border: 1px solid #17301c;
+		border-radius: 18px;
+		font-size: 1.00em;
+		font-weight: 300;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+		color: #ffffff;
+
+		&:hover {
+			background-color: #33aa8e;
+			cursor: pointer;
+		}
+	}
+}
+
+footer {
+	height: 60px;
+	width: 100%;
+	display: block;
+	margin-top: 20px;
+	padding: 2%;
+	box-sizing: border-box;
+	background-color: #d8dbe2;
+	border-top: 2px solid #eca400;
+	position: absolute;
+	bottom: 0%;
+
+	.footer-link {
+		height: auto;
+		width: 32%;
+		margin: 2% 0%;
+		display: inline-block;
+
+		img {
+			height: 20px;
+			width: auto;
+			margin: 0% auto;
+			margin-bottom: 2px;
+			vertical-align: middle;
+		}
+		a {
+			color: #333333;
+			text-decoration: none;
+		}
+		h3 {
+			font-size: 0.80em;
+			font-weight: 400;
+			text-align: center;
+			text-transform: uppercase;
+			margin-bottom: 0%;
+		}
+	}
+}
+
+// TYPOGRAPHY
+.page-title {
+	h1 {
+		font-size: 2em;
+		font-weight: 400;
+		text-align: center;
+		color: #333333;
+		text-transform: uppercase;
+		margin-bottom: 40px;
+	}
+}
+
+#start-run {
+	label {
+		font-weight: 300;
+		font-size: 1em;
+		line-height: 1.0;
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+		color: #17301c;
+		display: block;
+		margin-bottom: 4px;
+	}
+	input[type="text"] {
+		height: auto;
+		width: 100%;
+		display: block;
+		margin-bottom: 20px;
+		padding: 1%;
+		border: 1px solid #086375;
+		font-size: 0.80em;
+		color: #999999;
+		box-sizing: border-box;
+	}
+	textarea {
+		height: 70px;
+		width: 100%;
+		display: block;
+		padding: 1%;
+		margin-bottom: 20px;
+		border: 1px solid #086375;
+		font-size: 0.80em;
+		color: #999999;
+		box-sizing: border-box;
+	}
+}

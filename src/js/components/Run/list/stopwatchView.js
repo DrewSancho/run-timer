@@ -5,7 +5,7 @@ var timerModel = require()
 
 var StopwatchView = Backbone.View.extend({
 
-    template: = _.template(require('../stopwatchView.html')),
+    //template: = _.template(require('../stopwatchView.html')),
 
     initialize: function (options) {
         this.data = options.data;

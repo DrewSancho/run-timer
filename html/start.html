@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-		<title>Start Timer</title>
+		<title>Start Run</title>
 
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,13 +12,79 @@
 		<!-- ICONS -->
 		<!-- FONTS -->
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-		
+
 		<!-- FAVICON -->
 		<!-- SITE STYLESHEET -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 
 	<body>
+
+		<!-- HEADER -->
+		<header>
+			<a href="i"></a>
+			<img src="img/runtimer-logo_94x19@3x.png" alt="Run Timer"/>
+		</header>
+
+		<!-- CONTENT WRAPPER -->
+		<div id="start-run" class="content-wrapper">
+			
+			<!-- PAGE TITLE -->
+			<div class="page-title">
+				<h1>Start Run</h1>
+			</div>
+
+			<!-- PAGE FORM -->
+			<div class="page-form">
+
+				<!-- NAME -->
+				<label for="run-name">Name</label>
+				<input type="text" name="run-name" id="run-name" value="Where are you going today?"/>
+
+				<!-- DISTANCE -->
+				<label for="run-distance">Distance</label>
+				<input type="text" name="run-distance" id="run-distance" value="How far would you like to run?"/>
+
+				<!-- NOTES -->
+				<label for="run-notes">Notes</label>
+				<textarea name="run-notes" id="run-notes" placeholder="Enter any notes about your route or weather conditions."></textarea>
+
+			</div> <!-- END PAGE FORM -->
+
+			<!-- START BUTTON -->
+			<div class="start-button">
+				<input type="submit" value="Start"/>
+			</div>
+
+		</div> <!-- END CONTENT-WRAPPER -->
+
+		<!-- FOOTER -->
+			<footer>
+				<!-- HOME -->
+				<div class="footer-link">
+					<a href="index.html">
+						<img src="img/runtimer-home_26x20@3x.png">
+						<h3>Home</h3>
+					</a>
+				</div>
+
+				<!-- RUN -->
+				<div class="footer-link">
+					<a href="start.html">
+						<img src="img/runtimer-run_26x12@3x.png">
+						<h3>Run</h3>
+					</a>
+				</div>
+
+				<!-- DATA -->
+				<div class="footer-link">
+					<a href="data.html">
+						<img src="img/runtimer-data_26x20@3x.png">
+						<h3>Data</h3>
+					</a>
+				</div>
+
+			</footer>
 
 		<!-- JQUERY LINK -->
 		<!-- JAVASCRIPT LINK -->
