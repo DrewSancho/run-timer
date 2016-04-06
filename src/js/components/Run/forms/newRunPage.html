@@ -1,5 +1,38 @@
-<h1> New Run </h1>
+<!-- <h1> New Run </h1>
 <input class="runName" placeholder="Title"/>
 <input class="runDistance" placeholder="Miles"/>
 <input class="runNotes" type="textarea" placeholder="Notes..."/>
-<button class="startTimer">Start Timer</button>
+<button class="startTimer">Start Timer</button> -->
+
+
+<!-- CONTENT WRAPPER -->
+<div id="start-run" class="content-wrapper">
+            
+    <!-- PAGE TITLE -->
+    <div class="page-title">
+        <h1>Start Run</h1>
+    </div>
+
+    <!-- PAGE FORM -->
+    <div class="page-form">
+
+        <!-- NAME -->
+        <label for="run-name">Name</label>
+        <input type="text" name="run-name" id="run-name" class="runName" placeholder="Title" value="Where are you going today?"/>
+
+        <!-- DISTANCE -->
+        <label for="run-distance">Distance</label>
+        <input type="text" name="run-distance" id="run-distance" class="runDistance" placeholder="Notes..." value="How far would you like to run?"/>
+
+        <!-- NOTES -->
+        <label for="run-notes">Notes</label>
+        <textarea name="run-notes" id="run-notes" class="runNotes" placeholder="Enter any notes about your route or weather conditions."></textarea>
+
+    </div> <!-- END PAGE FORM -->
+
+    <!-- START BUTTON -->
+    <div class="start-button startTimer">
+        <input type="submit" value="Start"/>
+    </div>
+
+</div> <!-- END CONTENT-WRAPPER -->
