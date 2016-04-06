@@ -4,7 +4,7 @@ var $ = require('jquery');
 
 var BioView = Backbone.View.extend({
 
-    className: 'bio-view',
+    className: 'bioView',
 
     template: _.template(require('./bioView.html')),
 

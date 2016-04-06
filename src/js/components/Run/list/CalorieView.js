@@ -4,10 +4,10 @@ var $ = require('jquery');
 
 var CalorieView = Backbone.View.extend({
 
-    className: 'calorie-view',
+    className: 'calorieView',
 
     events: {
-        'click': 'onClick'
+        'click .calorie-run': 'onClick'
     },
 
     onClick: function () {

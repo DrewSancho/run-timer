@@ -4,16 +4,20 @@ var $ = require('jquery');
 
 var DistanceView = Backbone.View.extend({
 
-    className: 'distance-view',
+    className: 'distanceView',
 
     template: _.template(require('./distanceView.html')),
 
     events: {
-        'click': 'onClick'
+        'click .distance-run': 'onClick'
     },
 
     onClick: function () {
         window.location.hash = 'details/' + this.model.get('id');
+    },
+
+    render: function () {
+        this.$el.html(this.template(this.model.attributes));
     }
 
 });
