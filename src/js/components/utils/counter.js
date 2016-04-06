@@ -1,33 +1,46 @@
 
 
 function stopWatch () {
+
+    var api = { };
+
+    function counter () {
+
+        clockModel.set(clockModel.get('currentTime' + 1));
+
+        if (stopTimer === false) {
+            setTimeout(counter, 1000);
+
+        }
+
+    };
+
     
-    api.StartTimer function () {
+    api.startTimer = function () {
 
         stopTimer = false;
-        setTimeout(Counter, 1000);
+        setTimeout(counter, 1000);
 
 
     };
 
-    function PauseTimer () {
+    api.pauseTimer = function () {
 
 
     };
 
-    function StopTimer () {
+    api.stopTimer = function () {
 
         stopTimer = true;
 
 
 
-    }
+    };
 
 
-    function Counter () {
 
-        clockModel.set(clockModel.get('currentTime' + 1));
-
-    }
+    return api;
 
 }
+
+module.exports = stopWatch();
