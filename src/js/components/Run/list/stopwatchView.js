@@ -3,9 +3,11 @@ var Backbone = require('backbone');
 
 var StopwatchView = Backbone.View.extend({
 
+    template: = _.template(require('../stopwatchView.html')),
+
     events {
-        'click .stopButton',
-        'click .pauseButton'
+        'click .stop-button',
+        'click .pause-button'
     },
     
     render: function () {
