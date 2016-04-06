@@ -1,8 +1,8 @@
- var Backbone = require('backbone');
- var _ = require('underscore');
- var $ = require('jquery');
+var Backbone = require('backbone');
+var _ = require('underscore');
+var $ = require('jquery');
 
- var NewRunPage = Backbone.View.extend({
+var NewRunPage = Backbone.View.extend({
 
     className: 'newRunPage',
 
@@ -26,13 +26,13 @@
     createRun: function () {
         // get the values from the inputs, merge them into an object
         // and push the object to the run collection
-        var runTime = this.$('.runTime').val();
-        var runDate = this.$('.runDate').val();
+        var runName = this.$('.runName').val();
+        var runDistance = this.$('.runDistance').val();
         var runNotes = this.$('.runNotes').val();
 
         this.collection.create({
-            runTime: runTime,
-            runDate: runDate,
+            runName: runName,
+            runDistance: runDistance,
             runNotes: runNotes
         });
 
@@ -47,4 +47,4 @@
         }
     }
 });
- module.exports = NewRunPage;
+module.exports = NewRunPage;

@@ -4,6 +4,8 @@ var $ = require('jquery');
 
 var DistanceListView = Backbone.View.extend({
 
+    className: 'distanceList',
+
     events: {
         'click': 'onClick'
     },

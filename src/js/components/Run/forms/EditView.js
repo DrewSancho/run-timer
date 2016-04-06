@@ -11,11 +11,13 @@ var EditView = Backbone.View.extend({
     },
     editRun: function () {
         var runTime = this.$('.runTime').val();
+        var runName = this.$('.runName').val();
         var runDate = this.$('.runDate').val();
         var runNotes = this.$('.runNotes').val();
 
         this.model.set({
             runTime: runTime,
+            runName: runName,
             runDate: runDate,
             runNotes: runNotes
         });
