@@ -2,9 +2,7 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
 
-var CalorieView = Backbone.View.extend({
-
-    className: 'calorieView',
+var CalorieListView = Backbone.View.extend({
 
     events: {
         'click': 'onClick'
@@ -14,11 +12,12 @@ var CalorieView = Backbone.View.extend({
         window.location.hash = 'detail/' + this.model.get('id');
     },
 
-    template: _.template(require('./calorieView.html')),
+    template: _.template(require('./calorieListView.html')),
 
     render: function () {
-        this.$el.html(this.template(this.model.attributes));
+        this.$el.html(this.template());
     }
+
 });
 
-module.exports = CalorieView;
+module.exports = CalorieListView;
