@@ -28,6 +28,8 @@ var BioView = Backbone.View.extend({
             age: bioAge,
             weight: bioWeight
         });
+        window.location.hash = '';
+        console.log(localStorage);
     }
 
 });
