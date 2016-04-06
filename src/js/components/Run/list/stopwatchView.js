@@ -14,8 +14,8 @@ var StopwatchView = Backbone.View.extend({
 
     initialize: function (options) {
         this.data = options.data;
-        this.listenTo(this.model, 'change', this.render);
-        // startTimer();
+        this.listenTo(stopwatchModel, 'change', this.render);
+        stopwatchModel.startTimer();
     },
 
     events: {
@@ -26,21 +26,22 @@ var StopwatchView = Backbone.View.extend({
     onStopButton: function () {
         var _this = this;
 
-        this.model.stopTimer();
+        stopwatchModel.stopTimer();
 
         // var time = this.model.get('time');
         var person = JSON.parse(localStorage.bio);
         var calories = calorieCalc(person.weight, this.data.runDistance, 
                     stopwatchModel.get('time'));
 
-        var model = new RunDataModel();
-
-        model.save({  // HTTP POST
+        var model = new RunDataModel({
             runDate: this.data.runDate,
             runNotes: this.data.runNotes,
-            runDistance: this.data.runDistance,
+            runDistance: parseInt(this.data.runDistance),
             runCalories: calories,
-            time: stopwatchModel.get('time'),
+            runTime: stopwatchModel.get('time')
+        });
+
+        model.save({  // HTTP POST
             success: completeXfer
         });
 
@@ -51,7 +52,13 @@ var StopwatchView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(this.template());
+
+        var ticks = stopwatchModel.get('time');
+        this.$el.html(this.template({
+            hours: Math.floor(ticks / 3600),
+            minutes: Math.floor(ticks % 3600 / 60),
+            seconds: ticks % 60
+        }));
     }
 });
 

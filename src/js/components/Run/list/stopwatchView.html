@@ -1,6 +1,12 @@
 <!-- <div>hours:<span class='hours'></span></div>
 <div>minutes:<span class='minutes'></span></div>
 <div>seconds:<span class='seconds'></span></div>
+=======
+
+<div>hours:<span class='hours'><%= hours %></span></div>
+<div>minutes:<span class='minutes'><%= minutes %></span></div>
+<div>seconds:<span class='seconds'><%= seconds %></span></div>
+>>>>>>> working
 
 <button class='stop-button'></button>
 <button class='pause-button'></button> -->
@@ -8,7 +14,9 @@
 <section class="current_run">
             
     <h1>Current Run</h1>
-    <div class="timer">00:14:30</div>
+    <div class="timer">
+    <%= hours %> : <%= minutes %> :  <%=seconds %>
+    </div>
     <ul class="run_buttons">
         <li class="pause pause-button">PAUSE</li>
         <li class="stop stop-button">STOP</li>
