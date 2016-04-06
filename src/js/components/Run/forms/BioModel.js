@@ -9,7 +9,8 @@ var BioModel = Backbone.Model.extend({
     },
 
     initialize: function () {
-        this.set(JSON.parse(window.localStorage.bio) || {});
+        var local = window.localStorage.bio;
+        this.set(local ? JSON.parse(local) : {});
         this.on('change', this.localSave);
     },
 
