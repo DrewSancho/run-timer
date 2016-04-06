@@ -1,7 +1,7 @@
 var Backbone = require('backbone');
 
 var EditView = require('./Run/forms/EditView');
-var IndexView = require('./Run/list/IndexView');
+var DashboardView = require('./Run/list/DashboardView');
 var NewRunPage = require('./Run/forms/NewRunPage');
 var dispatcher = require('./Events/dispatcher');
 var DetailView = require('./Run/list/DetailView');
@@ -18,7 +18,7 @@ var AppRouter = Backbone.Router.extend({
     },
     index: function () {
         indexCollection.fetch();
-        dispatcher.trigger('app:show', new IndexView({collection: indexCollection}));
+        dispatcher.trigger('app:show', new DashboardView({collection: indexCollection}));
     },
     create: function () {
         indexCollection.fetch();
