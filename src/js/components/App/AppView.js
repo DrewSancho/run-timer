@@ -5,7 +5,7 @@ var $ = require('jquery');
 var HeaderView = require('../Header/HeaderView');
 var FooterView = require('../Footer/FooterView');
 var dispatcher = require('../Events/dispatcher');
-var StopWatchview = require('../Run/list/stopwatchview');
+var Stopwatchview = require('../Run/list/stopWatchview');
 
 var appView = Backbone.View.extend({
 
@@ -16,6 +16,7 @@ var appView = Backbone.View.extend({
         this.footerView = new FooterView();
         this.listenTo(dispatcher, 'app:show', this.show);
         this.listenTo(dispatcher, 'app:start', this.showTimer);
+        this.showTimer();
     },
 
     render: function () {
@@ -40,7 +41,7 @@ var appView = Backbone.View.extend({
     },
     showTimer: function (data) {
         this.stopWatch = null;
-        this.stopWatch = new StopWatchview({
+        this.stopWatch = new Stopwatchview({
             data: data
         });
         this.$('.timer-slot').append(this.stopWatch.$el);
