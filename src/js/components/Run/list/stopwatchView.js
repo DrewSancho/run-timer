@@ -2,60 +2,55 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 var _ = require('underscore');
 
-var timerModel = require()
+var RunDataModel = require('./RunDataModel');
+
+var stopwatchModel = require('../../utils/stopwatchModel');
 
 var StopwatchView = Backbone.View.extend({
 
-    template: = _.template(require('../stopwatchView.html')),
+    template: _.template(require('./stopwatchView.html')),
 
     initialize: function (options) {
         this.data = options.data;
-        this.listenTo (this.model, 'change', this.render);
-        stopwatchModel.start();
+        this.listenTo(this.model, 'change', this.render);
+        // startTimer();
     },
 
-    events {
+    events: {
         'click .stop-button': 'onStopButton',
         'click .pause-button': 'onPauseButton'
     },
 
     onStopButton: function () {
-
         var _this = this;
 
         this.model.stopTimer();
 
-        var time = this.model.get('time');
+        // var time = this.model.get('time');
         var calories = 10000;
-        //calorieCalc(this.INCOMPLETE!!!!!)
-            weight, distance, time
- 
-        
+        // calorieCalc(this.INCOMPLETE!!!!!)
+        // weight, distance, time
+
         var model = new RunDataModel();
 
-        model.save({  //HTTP POST
+        model.save({  // HTTP POST
             runDate: this.data.runDate,
             runNotes: this.data.runNotes,
+            runDistance: this.data.runDistance,
             runCalories: calories,
-            time: timerModel.get('time'),
+            time: stopwatchModel.get('time'),
             success: completeXfer
         });
 
         function completeXfer () {
             _this.remove();
             window.location.hash = '/detail' + this.model.get('id');
-        }   
-
+        }
     },
-    
 
     render: function () {
-
-
-        this.$el.html(this.template();;
-
+        this.$el.html(this.template());
     }
-
 });
 
 module.exports = StopwatchView;

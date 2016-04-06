@@ -30,21 +30,17 @@ var NewRunPage = Backbone.View.extend({
         var runDistance = this.$('.runDistance').val();
         var runNotes = this.$('.runNotes').val();
 
-        this.collection.create({
+        dispatcher.trigger('app:start',{
             runName: runName,
             runDistance: runDistance,
             runNotes: runNotes
         });
-
+ 
         // then, change the hash to 'index' so the router will navigate
         // to the index
         window.location.hash = '';
-    },
-
-    onKeydown: function (e) {
-        if (e.keyCode === 13) {
-            this.createRun();
-        }
     }
+
+
 });
 module.exports = NewRunPage;
