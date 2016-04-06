@@ -10,7 +10,8 @@ var FooterView = Backbone.View.extend({
     events: {
         'click .dash': 'dashboard',
         'click .runs': 'runs',
-        'click .bio': 'bio'
+        'click .bio': 'bio',
+        'click .add': 'add'
     },
     dashboard: function () {
         window.location.hash = '';
@@ -20,6 +21,10 @@ var FooterView = Backbone.View.extend({
     },
     bio: function () {
         window.location.hash = 'bio';
+    },
+    add: function () {
+        window.location.hash = 'add';
+
     }
 });
 
