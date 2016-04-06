@@ -1,40 +1,30 @@
-var stopwatchModel = Backbone.model.extend ({
+var Backbone = require('backbone');
+
+var stopwatchModel = Backbone.Model.extend({
 
     initialize: function () {
         this.stopTimer === true;
-    }
+    },
     counter: function () {
-
         this.set(this.get('currentTime' + 1));
 
-        if (stopTimer === false) {
+        if (this.stopTimer === false) {
             setTimeout(counter, 1000);
-
         };
-
     },
 
     startTimer: function () {
-
         this.stopTimer = false;
         setTimeout(counter, 1000);
+    },
 
+    pauseTimer: function () {
 
     },
 
-    api.pauseTimer = function () {
-
-
-    };
-
-    api.stopTimer = function () {
-
-        stopTimer = true;
-    };
-
-
-
-    
+    stopTimer: function () {
+        this.stopTimer = true;
+    }
 });
 
-module.exports 
+module.exports = stopwatchModel;

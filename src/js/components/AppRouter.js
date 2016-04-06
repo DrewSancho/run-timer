@@ -50,7 +50,11 @@ var AppRouter = Backbone.Router.extend({
     },
 
     bio: function () {
-        dispatcher.trigger('app:show', new BioView());
+        indexCollection.fetch({
+            success: function () {
+                dispatcher.trigger('app:show', new BioView());
+            }
+        });
     }
 });
 
