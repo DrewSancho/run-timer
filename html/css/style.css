@@ -29,10 +29,34 @@ header {
   width: 80%;
   margin: 0% auto; }
 
+.start-button input[type="submit"] {
+  height: auto;
+  width: 50%;
+  display: block;
+  margin: 0% auto;
+  padding: 3% 6%;
+  box-sizing: border-box;
+  position: absolute;
+  left: 25%;
+  bottom: 80px;
+  background-color: #009572;
+  border: 1px solid #17301c;
+  border-radius: 18px;
+  font-size: 1.00em;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ffffff; }
+  .start-button input[type="submit"]:hover {
+    background-color: #33aa8e;
+    cursor: pointer; }
+
 footer {
   height: 60px;
   width: 100%;
   display: block;
+  margin-top: 20px;
   padding: 2%;
   box-sizing: border-box;
   background-color: #d8dbe2;
@@ -66,7 +90,7 @@ footer {
   text-align: center;
   color: #333333;
   text-transform: uppercase;
-  margin-bottom: 30px; }
+  margin-bottom: 40px; }
 
 #start-run label {
   font-weight: 300;
