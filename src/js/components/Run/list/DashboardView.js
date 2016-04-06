@@ -2,7 +2,6 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
 
-var ListItemView = require('./ListItemView');
 var CalorieView = require('./CalorieView');
 var DistanceView = require('./DistanceView');
 

@@ -24,4 +24,4 @@ var BioView = Backbone.View.extend({
 
 });
 
-module.exports = BioView;
+module.exports = new BioView();
