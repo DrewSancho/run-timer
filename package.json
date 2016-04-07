@@ -11,7 +11,7 @@
     "watch:js": "watchify src/js/main.js -t [ babelify --presets [ es2015 ] ] -o public/assets/bundle.js",
     "watch:css": "sass --watch src/scss:public/assets",
     "build:js": "browserify src/js/main.js -t [ babelify --presets [ es2015 ] ] | uglifyjs > public/assets/bundle.js",
-    "build:css": "sass src/scss/main.scss public/assets/main.css",
+    "build:css": "sass html/scss/style.scss public/assets/main.css",
     "build": "npm run build:js && npm run build:css",
     "watch": "npm run watch:js & npm run watch:css",
     "test": "npm run build:test && open test/spec-runner.html",

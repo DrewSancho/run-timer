@@ -36,6 +36,7 @@ var appView = Backbone.View.extend({
         }
         view.render();
         this.$('.content-slot').append(view.$el);
+        this.headerView.render();
         this.child = view;
     },
     showTimer: function (data) {
