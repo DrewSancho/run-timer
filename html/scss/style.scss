@@ -79,6 +79,7 @@ header {
 	height: auto;
 	width: 90%;
 	margin: 0% auto;
+    position: relative;
 }
 
 /* Current Run Overlay */
@@ -146,6 +147,7 @@ footer {
 	border-top: 2px solid #eca400;
 	position: absolute;
 	bottom: 0;
+    list-style-type: none;
 
 	.footer-link {
 		height: auto;
