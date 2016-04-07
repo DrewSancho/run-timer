@@ -51,11 +51,14 @@ var StopwatchView = Backbone.View.extend({
         $('.timer-slot').empty();
 
         model.save({  // HTTP POST
-            success: completeXfer
+            success: completeXfer()
         });
 
         function completeXfer () {
-            window.location.hash = '/detail' + model.get('id');
+            console.log('detail page?');
+            console.log(model);
+            console.log(model.get('id'));
+            window.location.hash = 'detail/' + model.get('id');
         }
     },
 
