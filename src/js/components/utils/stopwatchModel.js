@@ -27,6 +27,12 @@ var StopwatchModel = Backbone.Model.extend({
     },
 
     pauseTimer: function () {
+        if (this.stopped === true) {
+            this.stopped = false;
+            setTimeout(this.counter.bind(this), 1000);           
+        } else {
+            this.stopped = true;
+        };
 
     },
 
