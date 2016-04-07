@@ -11,6 +11,7 @@
 @import "data";
 
 body{
+    list-style-type: none;
 	position: relative;
 	margin:0;
 	padding-bottom:100px;
@@ -148,9 +149,9 @@ header {
 	background-color: #d8dbe2;
 	border-top: 2px solid #eca400;
 	position: fixed;
-	bottom: 0;
-    list-style-type: none;
-    display: inline-block;
+    left: 0%;
+	bottom: 0%;
+    list-style: none;
 
 	.navigation{
 		padding:0;

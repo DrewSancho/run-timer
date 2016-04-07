@@ -9,7 +9,7 @@ var DistanceView = Backbone.View.extend({
     template: _.template(require('./distanceView.html')),
 
     events: {
-        'click .distance-run': 'onClick'
+        'click .click-here': 'onClick'
     },
 
     onClick: function () {
@@ -18,8 +18,12 @@ var DistanceView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(this.template(this.model.attributes));
-    }
+        this.$el.find('.miles_bar').css({'width': this.getDistancePercent(this.model.get('runDistance'))});
+    },
 
+    getDistancePercent: function (distance) {
+        return Number(distance) * 6.7 + '%';
+    }
 });
 
 module.exports = DistanceView;
