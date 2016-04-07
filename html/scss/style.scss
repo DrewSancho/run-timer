@@ -48,9 +48,11 @@ header {
 /* Previous Page */
 
 .back {
-    height: 50px;
-    width: 80px;
+    height: auto;
+    width: 3%;
     position: absolute;
+    left: 10px;
+    top: 8px;
 
     a{
         display: block;
@@ -61,7 +63,7 @@ header {
 
     .arrow {
     	position: initial;
-    	width: 25px;
+    	width: 100%;
     	top: 0;
     	transform: none;
     	float: left;
