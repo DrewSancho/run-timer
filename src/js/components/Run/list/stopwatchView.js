@@ -41,12 +41,16 @@ var StopwatchView = Backbone.View.extend({
             runTime: stopwatchModel.get('time')
         });
 
+        console.log('clear out timer');
+        this.remove();
+        $('.timer-slot').empty();
+
         model.save({  // HTTP POST
             success: completeXfer
         });
 
         function completeXfer () {
-            _this.remove();
+            console.log("this is the complete func")
             window.location.hash = '/detail' + model.get('id');
         }
     },

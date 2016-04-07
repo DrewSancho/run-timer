@@ -23,6 +23,8 @@ function calorieCalc ( weight, distance, time  ) {
 
         var mph = distance/(time/3600);
 
+        console.log("miles per hour", mph)
+
         if (mph > 12) {
             alert('You cannot run that fast');
         }
