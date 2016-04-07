@@ -49,6 +49,7 @@
     text-align: center;
     background: #009572;
     border-radius: 20px;
+    padding-bottom: 115px;
 
     button{
     	padding: 15px;
@@ -59,5 +60,7 @@
     	margin: 0 auto;
     	background: none;
     	border: none;
+    	position: fixed;
+
     }
 }
