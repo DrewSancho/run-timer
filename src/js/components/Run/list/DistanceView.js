@@ -13,7 +13,7 @@ var DistanceView = Backbone.View.extend({
     },
 
     onClick: function () {
-        window.location.hash = 'details/' + this.model.get('id');
+        window.location.hash = 'detail/' + this.model.get('id');
     },
 
     render: function () {
