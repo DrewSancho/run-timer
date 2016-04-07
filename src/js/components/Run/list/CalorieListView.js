@@ -5,6 +5,8 @@ var CalorieView = require('./CalorieView');
 
 var CalorieListView = Backbone.View.extend({
 
+    tagName: 'li',
+
     className: 'calorieList',
 
     initialize: function () {
