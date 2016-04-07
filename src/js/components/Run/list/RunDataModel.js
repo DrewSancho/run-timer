@@ -1,7 +1,16 @@
 var Backbone = require('backbone');
 
 var RunDataModel = Backbone.Model.extend({
-    urlRoot:'/api/runs'
+
+    defaults: {
+        runTime: 0,
+        runDate: new Date(),
+        runName: '',
+        runNotes: ''
+    },
+
+    urlRoot: '/api/runs'
+
 });
 
 module.exports = RunDataModel;
