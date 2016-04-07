@@ -16,7 +16,7 @@
             
     <h1>Current Run</h1>
     <div class="timer">
-    <%= hours %> : <%= minutes %> :  <%=seconds %>
+    <%= ((hours > 9) ? '': '0')  + hours %> : <%= ((minutes > 9) ? '': '0')  + minutes %> :  <%=((seconds > 9) ? '': '0')  + seconds %>
     </div>
     <ul class="run_buttons">
         <li class="pause pause-button">PAUSE</li>
