@@ -137,7 +137,7 @@ header {
 	}
 }
 
-footer {
+.footer-slot {
 	height: auto;
 	width: 100%;
 	display: block;
@@ -145,9 +145,10 @@ footer {
 	box-sizing: border-box;
 	background-color: #d8dbe2;
 	border-top: 2px solid #eca400;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
     list-style-type: none;
+    display: inline-block;
 
 	.footer-link {
 		height: auto;
@@ -161,10 +162,12 @@ footer {
 			margin: 0% auto;
 			margin-bottom: 2px;
 			vertical-align: middle;
+            display: inline;
 		}
 		a {
 			color: #333333;
 			text-decoration: none;
+            display: inline-block;
 		}
 		h3 {
 			font-size: 0.80em;
