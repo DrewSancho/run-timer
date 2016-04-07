@@ -24,7 +24,7 @@ img {
 }
 
 header {
-	height: 60px;
+	height: 72px;
 	width: 100%;
 	background: #009572;
     background: -webkit-linear-gradient(#009572, #086375);
@@ -41,7 +41,7 @@ header {
     	margin: 0% auto;
     	position: relative;
     	top: 50%;
-    	transform: translateY(-50%);
+    	// transform: translateY(-50%);
     }
 }
 
@@ -149,6 +149,12 @@ header {
 	bottom: 0;
     list-style-type: none;
     display: inline-block;
+
+	.navigation{
+		padding:0;
+		margin:0;
+		text-align: center;
+	}
 
 	.footer-link {
 		height: auto;

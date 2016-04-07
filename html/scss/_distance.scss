@@ -1,13 +1,13 @@
 .run_selector{
 
-	ul{
+	
 		padding:0;
 		margin:0;
 		width:100%;
 		text-align: center;
         list-style-type: none;
         position: relative;
-	}
+	
 }
 
 .calories, .distances{
@@ -18,17 +18,16 @@
     // background: #086375;
     border: solid 1px #086375;
 
-    a{
-    	text-decoration: none;
-    	color: #000;
-    	display: block;
-    	padding: 10px;
+    // text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 10px;
 
     	&:active{
     		background: #086375;
     		color:#ECA400;
     	}
-    }
+    
 }
 
 .selected{
