@@ -9,7 +9,7 @@ var CalorieView = Backbone.View.extend({
     className: 'calorieView',
 
     events: {
-        'click': 'onClick'
+        'click .clicker': 'onClick'
     },
 
     onClick: function () {
@@ -20,6 +20,11 @@ var CalorieView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(this.template(this.model.attributes));
+        this.$el.find('.runCalories').css({'width': this.getCaloriePercent(this.model.get('runCalories'))});
+    },
+
+    getCaloriePercent: function (calorie) {
+        return Number(calorie) * 0.025 + '%';
     }
 });
 
