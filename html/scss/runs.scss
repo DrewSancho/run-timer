@@ -1,5 +1,11 @@
 .past_runs{
 
+    display: flex;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: #000;
+
 	ul{
 		padding: 0;
     	margin: 0;
@@ -17,14 +23,6 @@
     	&:nth-child(even){
 			background: #B2D8CD;
 			}
-	}
-
-	a{
-		display: flex;
-    	height: 100%;
-    	width: 100%;
-    	text-decoration: none;
-    	color: #000;
 	}
 
 	.run_date{
