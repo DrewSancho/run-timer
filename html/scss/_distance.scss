@@ -29,6 +29,14 @@
     }
 }
 
+.selected{
+	background: #086375;
+
+	a{
+    	color:#ECA400;
+    }
+}
+
 .calories{
 	border-top-left-radius: 8px;
 	border-bottom-left-radius: 8px;
@@ -70,13 +78,13 @@
 			float: left;
 		}
 
-		.miles_bar{
+		.miles_bar, .calories_bar{
 			width: 200px;
     		background: #ECA400;
-    		background: -webkit-linear-gradient(#ECA400, #FFF);
-    		background: -o-linear-gradient(#ECA400, #FFF);
-    		background: -moz-linear-gradient(#ECA400, #FFF);
-    		background: linear-gradient(#ECA400, #FFF);
+    		// background: -webkit-linear-gradient(#ECA400, #FFF);
+    		// background: -o-linear-gradient(#ECA400, #FFF);
+    		// background: -moz-linear-gradient(#ECA400, #FFF);
+    		// background: linear-gradient(#ECA400, #FFF);
 
     		display: block;
     		height: 100%;

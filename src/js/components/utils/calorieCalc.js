@@ -4,7 +4,6 @@ function calorieCalc ( weight, distance, time  ) {
 
     function getMETS ( distance, time) {
         var retval;
-        
         var lookup = [
             {mph: 4, METS: 6 },
             {mph: 5, METS: 8.3 },
@@ -22,7 +21,9 @@ function calorieCalc ( weight, distance, time  ) {
 
             ];
 
-        var mph = distance/time;
+        var mph = distance/(time/3600);
+
+        console.log("miles per hour", mph)
 
         if (mph > 12) {
             alert('You cannot run that fast');
@@ -40,14 +41,14 @@ function calorieCalc ( weight, distance, time  ) {
 
     }
 
-// Weight on charts is in KG
-weight *= 2.2;
+    // Weight on charts is in KG
+    weight /= 2.2;
 
 
-calories = getMETS(distance, time) * weight * time/60;
+    var calories = getMETS(distance, time) * weight * time/3600;
 
-return calories;
-    
-}
+    return calories;
+        
+    }
 
 module.exports = calorieCalc;

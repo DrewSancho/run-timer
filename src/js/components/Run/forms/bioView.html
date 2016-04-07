@@ -1,4 +1,4 @@
-<label for="bioName">Name:</label>
+<!-- <label for="bioName">Name:</label>
 <input type="text" id="bioName" class="bio-input-header" placeholder="name" value="<%= name %>"/>
 
 <label for="bioAge">Age:</label>
@@ -7,4 +7,23 @@
 <label for="bioWeight">Weight:</label>
 <input type="text" id="bioWeight" class="bio-input-header" placeholder="lbs" value="<%= weight %> " />
 
-<button class="bio-save">Save Changes</button>
+<button class="bio-save">Save Changes</button> -->
+
+<!-- CONTENT WRAPPER -->
+<main id="run_app" class="content-wrapper">
+    <section>
+        <form class="edit_run">
+            <label for="name">Name:</label>
+            <input name="name" id="bioName" class="bio-input-header" type="text" placeholder="Name"/>
+
+            <label for="age">Age:</label>
+            <input name="age" id="bioAge" class="bio-input-header" type="text" placeholder="Yrs"/>
+
+            <label for="weight">Weight:</label>
+            <input name="weight" id="bioWeight" class="bio-input-header" type="text" placeholder="lbs"/>
+
+            <input type="submit" class="edit_submit bio-save" value="Save Changes">
+        </form>
+    </section>
+
+</main> <!-- END CONTENT-WRAPPER -->

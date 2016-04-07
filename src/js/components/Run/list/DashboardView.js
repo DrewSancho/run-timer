@@ -2,8 +2,8 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
 
-var CalorieView = require('./CalorieView');
-var DistanceView = require('./DistanceView');
+var CalorieListView = require('./CalorieListView');
+var DistanceListView = require('./DistanceListView');
 
 var IndexView = Backbone.View.extend({
     className: 'IndexView',
@@ -31,10 +31,10 @@ var IndexView = Backbone.View.extend({
         'click .distance': 'distanceView'
     },
     showCalorieView: function (e) {
-        this.show(new CalorieView({ collection: this.collection }));
+        this.show(new CalorieListView({ collection: this.collection }));
     },
     showDistanceView: function (e) {
-        this.show(new DistanceView({ collection: this.collection }));
+        this.show(new DistanceListView({ collection: this.collection }));
     },
     show: function (view) {
         if (this.child) {

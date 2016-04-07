@@ -1,76 +1,76 @@
-@import "mixins";
-.DetailView {
-    .cf:after {
-        visibility: hidden;
-        display: block;
-        font-size: 0;
-        content: " ";
-        clear: both;
-        height: 0;
-    }
-    background-color: $appBackground;
-    margin-top: 0;
-    height: 500px;
-    line-height: 18px;
-        .runTime {
-        float: right;
-        color: $inputText;
-        text-align: right;
-        widows: 50%;
-        padding-right: 1em;
-        }
-        .detailNav{  
-            @include column(1, 1);
-            position: absolute;
-            top: 80%;
-            button{
-                border-radius: 3%;
-                border:none;
-                color: $greyButtonText;
-                float: left;
-            }
-            .back {
-                background-color: $buttonGrey;
-                @include column(1, 4);
-                margin-left: 1em;
-            }
-            .destroy {
-                background-color: $destroyBackground;
-                @include column(1, 4);
-                float: right;
-                margin-right: 1em;
-            }
-            .edit {
-                @include column(1, 4);
-                float: right;
-                margin-right: 1em;
-            }
-        }
-        hr {
-            border-color: $placeHolderText;
-        }
-}
+// @import "mixins";
+// .DetailView {
+//     .cf:after {
+//         visibility: hidden;
+//         display: block;
+//         font-size: 0;
+//         content: " ";
+//         clear: both;
+//         height: 0;
+//     }
+//     background-color: $appBackground;
+//     margin-top: 0;
+//     height: 500px;
+//     line-height: 18px;
+//         .runTime {
+//         float: right;
+//         color: $inputText;
+//         text-align: right;
+//         widows: 50%;
+//         padding-right: 1em;
+//         }
+//         .detailNav{  
+//             @include column(1, 1);
+//             position: absolute;
+//             top: 80%;
+//             button{
+//                 border-radius: 3%;
+//                 border:none;
+//                 color: $greyButtonText;
+//                 float: left;
+//             }
+//             .back {
+//                 background-color: $buttonGrey;
+//                 @include column(1, 4);
+//                 margin-left: 1em;
+//             }
+//             .destroy {
+//                 background-color: $destroyBackground;
+//                 @include column(1, 4);
+//                 float: right;
+//                 margin-right: 1em;
+//             }
+//             .edit {
+//                 @include column(1, 4);
+//                 float: right;
+//                 margin-right: 1em;
+//             }
+//         }
+//         hr {
+//             border-color: $placeHolderText;
+//         }
+// }
 
-.title {
-    color: $titleWhite;
-    margin-top: 0;
-    padding-top: 15px;
-    padding-left: 1em;
-}
+// .title {
+//     color: $titleWhite;
+//     margin-top: 0;
+//     padding-top: 15px;
+//     padding-left: 1em;
+// }
 
-.runDate, .runNotes {
-    color: $regularText;
-}
+// .runDate, .runNotes {
+//     color: $regularText;
+// }
 
-.runNotes {
-    padding-top: 2em;
-    padding-left: 1em;
-    padding-right: 1em;
-}
+// .runNotes {
+//     padding-top: 2em;
+//     padding-left: 1em;
+//     padding-right: 1em;
+// }
 
-.runDate {
-    float: left;
-    text-align: left;
-    width: 50%;
-    padding-left: 1em;
-}
+// .runDate {
+//     float: left;
+//     text-align: left;
+//     width: 50%;
+//     padding-left: 1em;
+// }

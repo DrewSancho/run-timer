@@ -6,7 +6,7 @@ var RunDataModel = require('./RunDataModel');
 
 var stopwatchModel = require('../../utils/stopwatchModel');
 
-var calorieCalc = require('../../utils/calorieCalc')
+var calorieCalc = require('../../utils/calorieCalc');
 
 var StopwatchView = Backbone.View.extend({
 
@@ -30,22 +30,27 @@ var StopwatchView = Backbone.View.extend({
 
         // var time = this.model.get('time');
         var person = JSON.parse(localStorage.bio);
-        var calories = calorieCalc(person.weight, this.data.runDistance, 
+        var calories = calorieCalc(person.weight, this.data.runDistance,
                     stopwatchModel.get('time'));
 
-        var model = new RunDataModel();
-
-        model.save({  // HTTP POST
+        var model = new RunDataModel({
             runDate: this.data.runDate,
             runNotes: this.data.runNotes,
-            runDistance: this.data.runDistance,
+            runDistance: parseInt(this.data.runDistance),
             runCalories: calories,
-            time: stopwatchModel.get('time'),
+            runTime: stopwatchModel.get('time')
+        });
+
+        console.log('clear out timer');
+        this.remove();
+        $('.timer-slot').empty();
+
+        model.save({  // HTTP POST
             success: completeXfer
         });
 
         function completeXfer () {
-            _this.remove();
+            console.log("this is the complete func")
             window.location.hash = '/detail' + model.get('id');
         }
     },

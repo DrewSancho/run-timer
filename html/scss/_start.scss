@@ -14,7 +14,7 @@
 	}
 }
 
-#start-run {
+#run_app {
 	label {
 		font-weight: 300;
 		font-size: 1em;
@@ -48,10 +48,18 @@
 		box-sizing: border-box;
 	}
 
-	input[type="submit"]{
+	.start-button{
 		display: block;
-		width: 50%;
-		height:70px;
-		
+		text-align: center;
+	}
+
+	input[type="submit"]{
+		font-size: 1.5em;
+    	height: 60px;
+    	background: #009572;
+    	border: none;
+    	width: 30%;
+    	border-radius: 30px;
+    	color: #FFF;
 	}
 }

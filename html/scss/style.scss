@@ -4,9 +4,16 @@
 
 @import "distance";
 
+@import "runs";
+
+@import "runedit";
+
+@import "data";
+
 body{
+	position: relative;
 	margin:0;
-	padding:0;
+	padding-bottom:100px;
 	width:auto;
 	background: aliceblue;
 	font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -82,6 +89,7 @@ header {
 	margin:30px 0;
 	width:100%;
 	background: #037252;
+	background: linear-gradient(#037252, #3F967D);
 	border-radius: 8px;
 
 	h1{
@@ -132,12 +140,12 @@ footer {
 	height: auto;
 	width: 100%;
 	display: block;
-	padding: 2%;
+	padding: 20px;
 	box-sizing: border-box;
 	background-color: #d8dbe2;
 	border-top: 2px solid #eca400;
 	position: absolute;
-	bottom: 0%;
+	bottom: 0;
 
 	.footer-link {
 		height: auto;

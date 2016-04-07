@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-		<title>Start Run</title>
+		<title>Edit Data</title>
 
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,45 +25,53 @@
 			<div class="back">
 				<a href="#">
 					<img class="arrow" src="img/arrow.png">
-					<span class="prev_page">Start Run</span>
+					<span class="prev_page">Runs</span>
 				</a>
 			</div>
 
-			<a href="#"></a>
+			<a href="i"></a>
 			<img src="img/runtimer-logo_94x19@3x.png" alt="Run Timer"/>
+
 		</header>
 
 		<!-- CONTENT WRAPPER -->
-		<div id="run_app" class="content-wrapper">
+		<main id="run_app" class="content-wrapper">
 			
 			<!-- PAGE TITLE -->
 			<div class="page-title">
-				<h1>Start Run</h1>
+				<h1>Edit Data</h1>
 			</div>
 
-			<!-- PAGE FORM -->
-			<div class="page-form">
+			<!-- CURRENT RUN OVERLAY -->
+			<section class="current_run">
+			
+				<h1>Current Run</h1>
+				<div class="timer">00:14:30</div>
+				<ul class="run_buttons">
+					<li class="pause"><a href="#">PAUSE</a></li>
+					<li class="stop"><a href="#">STOP</a></li>
+				</ul>
+			
+			</section>
 
-				<!-- NAME -->
-				<label for="run-name">Name</label>
-				<input type="text" name="run-name" id="run-name" value="Where are you going today?"/>
+			<!-- LIST OF RUNS BY DISTANCE -->
 
-				<!-- DISTANCE -->
-				<label for="run-distance">Distance</label>
-				<input type="text" name="run-distance" id="run-distance" value="How far would you like to run?"/>
+			<section>
+				<form class="edit_run">
+					<label for="name">Name:</label>
+					<input name="name" id="name" type="text" />
 
-				<!-- NOTES -->
-				<label for="run-notes">Notes</label>
-				<textarea name="run-notes" id="run-notes" placeholder="Enter any notes about your route or weather conditions."></textarea>
+					<label for="age">Age:</label>
+					<input name="age" id="age" type="text" />
 
-			</div> <!-- END PAGE FORM -->
+					<label for="weight">Weight:</label>
+					<input name="weight" id="weight" type="text" />
 
-			<!-- START BUTTON -->
-			<div class="start-button">
-				<input type="submit" value="START"/>
-			</div>
+					<input type="submit" class="edit_submit" value="Save Changes">
+				</form>
+			</section>
 
-		</div> <!-- END CONTENT-WRAPPER -->
+		</main> <!-- END CONTENT-WRAPPER -->
 
 		<!-- FOOTER -->
 			<footer>

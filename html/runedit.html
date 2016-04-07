@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-		<title>Start Run</title>
+		<title>Edit Run</title>
 
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,45 +25,68 @@
 			<div class="back">
 				<a href="#">
 					<img class="arrow" src="img/arrow.png">
-					<span class="prev_page">Start Run</span>
+					<span class="prev_page">Runs</span>
 				</a>
 			</div>
 
-			<a href="#"></a>
+			<a href="i"></a>
 			<img src="img/runtimer-logo_94x19@3x.png" alt="Run Timer"/>
+
+			<div class="edit">
+				<a class="edit_button" href="#"><img src="img/edit.png" /></a>
+				<a class="save_button" href="#"><img src="img/save.png" /></a>
+			</div>
 		</header>
 
 		<!-- CONTENT WRAPPER -->
-		<div id="run_app" class="content-wrapper">
+		<main id="run_app" class="content-wrapper">
 			
 			<!-- PAGE TITLE -->
 			<div class="page-title">
-				<h1>Start Run</h1>
+				<h1>Edit Run</h1>
 			</div>
 
-			<!-- PAGE FORM -->
-			<div class="page-form">
+			<!-- CURRENT RUN OVERLAY -->
+			<section class="current_run">
+			
+				<h1>Current Run</h1>
+				<div class="timer">00:14:30</div>
+				<ul class="run_buttons">
+					<li class="pause"><a href="#">PAUSE</a></li>
+					<li class="stop"><a href="#">STOP</a></li>
+				</ul>
+			
+			</section>
 
-				<!-- NAME -->
-				<label for="run-name">Name</label>
-				<input type="text" name="run-name" id="run-name" value="Where are you going today?"/>
+			<!-- LIST OF RUNS BY DISTANCE -->
 
-				<!-- DISTANCE -->
-				<label for="run-distance">Distance</label>
-				<input type="text" name="run-distance" id="run-distance" value="How far would you like to run?"/>
+			<section>
+				<form class="edit_run">
+					<div class="distance">
+						<label>Distance:</label>
+						<p></p>
+					</div>
 
-				<!-- NOTES -->
-				<label for="run-notes">Notes</label>
-				<textarea name="run-notes" id="run-notes" placeholder="Enter any notes about your route or weather conditions."></textarea>
+					<div class="notes">
+						<label>Notes:</label>
+						<textarea>Running through Sutter Hill area. Going up Dead Man’s Hill and though the neighborhood with the water tower. Going to try for 5 miles.</textarea>
+					</div>
 
-			</div> <!-- END PAGE FORM -->
+					<div class="time">
+						<label>Run Time:</label>
+						<p></p>
+					</div>
 
-			<!-- START BUTTON -->
-			<div class="start-button">
-				<input type="submit" value="START"/>
-			</div>
+					<div class="calories_burned">
+						<label>Calories Burned:</label>
+						<p></p>
+					</div>
 
-		</div> <!-- END CONTENT-WRAPPER -->
+					<input type="submit" class="edit_submit" value="Update Run">
+				</form>
+			</section>
+
+		</main> <!-- END CONTENT-WRAPPER -->
 
 		<!-- FOOTER -->
 			<footer>

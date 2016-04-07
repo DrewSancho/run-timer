@@ -1,0 +1,18 @@
+.edit_button, .save_button{
+
+	img{
+		transform: none;
+    	width: 40px;
+    	top: 10px;
+    	right: 10px;
+    	position: absolute;
+	}
+}
+
+.edit_run p {
+    width: 20%;
+    display: block;
+    height: 40px;
+    background: #FFF;
+    border: 1px solid;
+}

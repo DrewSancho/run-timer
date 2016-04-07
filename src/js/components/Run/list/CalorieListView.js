@@ -1,19 +1,33 @@
 var Backbone = require('backbone');
 var $ = require('jquery');
 
+var CalorieView = require('./CalorieView');
+
 var CalorieListView = Backbone.View.extend({
+
     className: 'calorieList',
 
-    events: {
-        'click': 'onClick'
-    },
-
-    onClick: function () {
-        window.location.hash = 'detail/' + this.model.get('id');
+    initialize: function () {
+        this.childViews = [];
     },
 
     render: function () {
-        this.$el.html(this.template());
+        var _this = this;
+
+        this.$el.empty();
+
+        this.childViews.forEach(function (view) {
+            view.remove();
+        });
+
+        this.childViews = this.collection.map(function (model) {
+            return new CalorieView({ model: model });
+        });
+
+        this.childViews.forEach(function (view) {
+            view.render();
+            _this.$el.append(view.$el);
+        });
     }
 
 });
