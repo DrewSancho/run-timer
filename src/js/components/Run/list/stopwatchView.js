@@ -25,7 +25,6 @@ var StopwatchView = Backbone.View.extend({
 
     onPauseButton: function () {
         stopwatchModel.pauseTimer();
-
     },
 
     onStopButton: function () {
