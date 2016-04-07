@@ -42,7 +42,7 @@ function calorieCalc ( weight, distance, time  ) {
     }
 
     // Weight on charts is in KG
-    weight *= 2.2;
+    weight /= 2.2;
 
 
     var calories = getMETS(distance, time) * weight * time/3600;
