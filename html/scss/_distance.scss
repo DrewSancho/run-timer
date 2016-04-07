@@ -1,13 +1,15 @@
 .run_selector{
-
-	
-		padding:0;
-		margin:0;
-		width:100%;
+        height: auto;
+		padding:2% 0;
+        box-sizing: border-box;
+		margin: 0% auto;
+        margin-bottom: 4%;
+		width: 100%;
 		text-align: center;
         list-style-type: none;
         position: relative;
-	
+        display: block;
+
 }
 
 .calories, .distances{
@@ -52,7 +54,6 @@
 .run_list{
 
 	ul{
-		padding:0;
 		margin:0;
 		list-style-type: none;
 	
@@ -77,6 +78,7 @@
 		}
 
 		.miles_bar, .calories_bar{
+            list-style-type: none;
 			width: 200px;
     		background: #ECA400;
     		// background: -webkit-linear-gradient(#ECA400, #FFF);
@@ -93,8 +95,18 @@
     		border-bottom-right-radius: 5px;
 		}
 
+<<<<<<< HEAD
 		.miles, .calories{
 			float: right;
+=======
+		.miles {
+			float: left;
+            padding-left: 3em;
+>>>>>>> working
 		}
+        .runCalories {
+            padding-left: 3em;
+            text-align: left;
+        }
 	}
 }

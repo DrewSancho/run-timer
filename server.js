@@ -2,7 +2,16 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 
-var data = [];
+var data = [
+    {
+        runTime: 5025,
+        runDate: '4/7/2016, 12:43:29pm',
+        runNotes: 'test',
+        runDistance: 10.1,
+        runCalories: 2733.25,
+        id: 1
+    }
+];
 
 app.use(bodyParser());
 
@@ -12,7 +21,7 @@ app.get('/api/runs', function (req, res) {
     res.json(data);
 });
 
-var id = 0;
+var id = 1;
 
 app.post('/api/runs', function (req, res) {
     var item = {
