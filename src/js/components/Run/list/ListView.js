@@ -1,11 +1,24 @@
 var Backbone = require('backbone');
 var $ = require('jquery');
+var _ = require('underscore');
 
 var ListItemView = require('./ListItemView');
 
 var ListView = Backbone.View.extend({
 
-    className: 'runList',
+    tagName: 'ul',
+
+    className: 'runList past_runs',
+
+    events: {
+        'click .new_run': 'newRun'
+    },
+
+    newRun: function () {
+        window.location.hash = 'add';
+    },
+
+    template: _.template(require('./listView.html')),
 
     initialize: function () {
         this.childViews = [];
@@ -15,6 +28,7 @@ var ListView = Backbone.View.extend({
         var _this = this;
 
         this.$el.empty();
+        this.$el.html(this.template());
 
         this.childViews.forEach(function (view) {
             view.remove();

@@ -1,4 +1,14 @@
 .edit_submit{
 	display: block;
 	margin:0 auto;
+
+	input[type="submit"]{
+		font-size: 1.5em;
+    	height: 60px;
+    	background: #009572;
+    	border: none;
+    	width: 30%;
+    	border-radius: 30px;
+   	 	color: #FFF;
+		}
 }

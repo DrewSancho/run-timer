@@ -46,7 +46,6 @@ var StopwatchView = Backbone.View.extend({
             runTime: stopwatchModel.get('time')
         });
 
-        console.log('clear out timer');
         this.remove();
         $('.timer-slot').empty();
 
@@ -62,10 +61,12 @@ var StopwatchView = Backbone.View.extend({
     render: function () {
         var ticks = stopwatchModel.get('time');
         this.$el.html(this.template({
-            hours: Math.floor(ticks / 3600),
-            minutes: Math.floor(ticks % 3600 / 60),
-            seconds: ticks % 60
+            formattedTime: this.getFormattedTime(ticks)
         }));
+    },
+
+    getFormattedTime: function (ticks) {
+        return ((ticks / 3600 > 9) ? '' : '0') + Math.floor(ticks / 3600) + ':' + (((ticks % 3600) / 60 > 9) ? '' : '0') + Math.floor((ticks % 3600) / 60) + ':' + (((ticks % 60) > 9) ? '' : '0') + ticks % 60;
     }
 });
 
