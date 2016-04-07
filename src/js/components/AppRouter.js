@@ -20,8 +20,11 @@ var AppRouter = Backbone.Router.extend({
         'bio': 'bio'
     },
     index: function () {
-        indexCollection.fetch();
-        dispatcher.trigger('app:show', new DashboardView({collection: indexCollection}));
+        indexCollection.fetch({
+            success: function () {
+                dispatcher.trigger('app:show', new DashboardView({collection: indexCollection}));
+            }
+        });
     },
     create: function () {
         indexCollection.fetch();
