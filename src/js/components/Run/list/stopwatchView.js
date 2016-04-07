@@ -55,9 +55,6 @@ var StopwatchView = Backbone.View.extend({
         });
 
         function completeXfer () {
-            console.log('detail page?');
-            console.log(model);
-            console.log(model.get('id'));
             window.location.hash = 'detail/' + model.get('id');
         }
     },
