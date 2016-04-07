@@ -14,13 +14,13 @@
     <section>
         <form class="edit_run">
             <label for="name">Name:</label>
-            <input name="name" id="bioName" class="bio-input-header" type="text" placeholder="Name"/>
+            <input name="name" id="bioName" class="bio-input-header" type="text" value="<%= JSON.parse(localStorage.bio).name %>"/>
 
             <label for="age">Age:</label>
-            <input name="age" id="bioAge" class="bio-input-header" type="text" placeholder="Yrs"/>
+            <input name="age" id="bioAge" class="bio-input-header" type="text" placeholder="Yrs" value="<%= JSON.parse(localStorage.bio).age %>"/>
 
             <label for="weight">Weight:</label>
-            <input name="weight" id="bioWeight" class="bio-input-header" type="text" placeholder="lbs"/>
+            <input name="weight" id="bioWeight" class="bio-input-header" type="text" placeholder="lbs" value="<%= JSON.parse(localStorage.bio).weight%>"/>
 
             <input type="submit" class="edit_submit bio-save" value="Save Changes">
         </form>
