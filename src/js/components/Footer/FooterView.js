@@ -3,6 +3,9 @@ var _ = require('underscore');
 var $ = require('jquery');
 
 var FooterView = Backbone.View.extend({
+    tagName: 'ul',
+    className: 'navigation',
+
     template: _.template(require('./footerView.html')),
     render: function () {
         this.$el.html(this.template());

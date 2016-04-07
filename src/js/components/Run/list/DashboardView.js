@@ -6,7 +6,7 @@ var CalorieListView = require('./CalorieListView');
 var DistanceListView = require('./DistanceListView');
 
 var IndexView = Backbone.View.extend({
-    className: 'IndexView',
+    className: 'dashboard',
 
     template: _.template(require('./dashboardView.html')),
     initialize: function () {
