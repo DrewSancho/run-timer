@@ -4,6 +4,8 @@ var $ = require('jquery');
 
 var CalorieView = Backbone.View.extend({
 
+    tagName: 'ul',
+
     className: 'calorieView',
 
     events: {
