@@ -48,7 +48,7 @@ app.put('/api/runs/:id', function (req, res) {
         // access the index[0] in the run array which is what we filtered for
     })[0];
     // using the Object.assign we will, update the data with what we edited
-    Object.assign(run, { id: id, runDate: req.body.runDate, runNotes: req.body.runNotes, runTime: req.body.runTime });
+    Object.assign(run, { id: id, runName: req.body.runName, runNotes: req.body.runNotes, runTime: req.body.runTime, runDistance: req.body.runDistance });
     // our response is to return the json form of the run we just edited
     res.json(run);
 });

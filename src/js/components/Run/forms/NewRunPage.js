@@ -29,7 +29,7 @@ var NewRunPage = Backbone.View.extend({
         // get the values from the inputs, merge them into an object
         // and push the object to the run collection
         var runName = this.$('.runName').val();
-        var runDistance = this.$('.runDistance').val();
+        var runDistance = Number(this.$('.runDistance').val());
         var runNotes = this.$('.runNotes').val();
         var runDate = new Date();
 
