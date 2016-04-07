@@ -10,13 +10,13 @@ var EditView = Backbone.View.extend({
         'keydown': 'onKeydown'
     },
     editRun: function () {
-        var runTime = this.$('.runTime').val();
+        // var runTime = this.$('.runTime').val();
         var runName = this.$('.runName').val();
         var runNotes = this.$('.runNotes').val();
         var runDistance = this.$('.runDistance').val();
 
         this.model.set({
-            runTime: runTime,
+            // runTime: runTime,
             runName: runName,
             runNotes: runNotes,
             runDistance: runDistance
