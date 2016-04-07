@@ -27,13 +27,25 @@ var IndexView = Backbone.View.extend({
         });
     },
     events: {
-        'click .calories': 'showCalorieListView',
-        'click .distance': 'showDistanceListView'
+        'click .calories': 'showCalorieView',
+        'click .distances': 'showDistanceView'
     },
-    showCalorieListView: function (e) {
+    showCalorieView: function () {
+        if (!$('.calories').hasClass('selected')) {
+            $('.calories').addClass('selected');
+        }
+        if ($('.distances').hasClass('selected')) {
+            $('.distances').removeClass('selected');
+        }
         this.show(new CalorieListView({ collection: this.collection }));
     },
-    showDistanceListView: function (e) {
+    showDistanceView: function () {
+        if (!$('.distances').hasClass('selected')) {
+            $('.distances').addClass('selected');
+        }
+        if ($('.calories').hasClass('selected')) {
+            $('.calories').removeClass('selected');
+        }
         this.show(new DistanceListView({ collection: this.collection }));
     },
     show: function (view) {
