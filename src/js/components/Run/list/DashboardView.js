@@ -27,13 +27,13 @@ var IndexView = Backbone.View.extend({
         });
     },
     events: {
-        'click .calories': 'showCalorieView',
-        'click .distance': 'distanceView'
+        'click .calories': 'showCalorieListView',
+        'click .distance': 'showDistanceListView'
     },
-    showCalorieView: function (e) {
+    showCalorieListView: function (e) {
         this.show(new CalorieListView({ collection: this.collection }));
     },
-    showDistanceView: function (e) {
+    showDistanceListView: function (e) {
         this.show(new DistanceListView({ collection: this.collection }));
     },
     show: function (view) {

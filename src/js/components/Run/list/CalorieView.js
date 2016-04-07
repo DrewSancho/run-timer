@@ -17,7 +17,7 @@ var CalorieView = Backbone.View.extend({
     template: _.template(require('./calorieView.html')),
 
     render: function () {
-        //this.$el.html(this.template(this.model.attributes));
+        this.$el.html(this.template(this.model.attributes));
     }
 });
 
