@@ -34,14 +34,15 @@ var StopwatchView = Backbone.View.extend({
         stopwatchModel.stopTimer();
 
         // var time = this.model.get('time');
-        var person = JSON.parse(localStorage.bio);
+        var person = JSON.parse(window.localStorage.bio);
         var calories = calorieCalc(person.weight, this.data.runDistance,
                     stopwatchModel.get('time'));
 
         var model = new RunDataModel({
             runDate: this.data.runDate,
             runNotes: this.data.runNotes,
-            runDistance: parseInt(this.data.runDistance),
+            runName: this.data.runName,
+            runDistance: this.data.runDistance,
             runCalories: calories,
             runTime: stopwatchModel.get('time')
         });
@@ -55,13 +56,11 @@ var StopwatchView = Backbone.View.extend({
         });
 
         function completeXfer () {
-            console.log("this is the complete func")
             window.location.hash = '/detail' + model.get('id');
         }
     },
 
     render: function () {
-
         var ticks = stopwatchModel.get('time');
         this.$el.html(this.template({
             hours: Math.floor(ticks / 3600),

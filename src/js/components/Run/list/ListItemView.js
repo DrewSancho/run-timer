@@ -15,6 +15,7 @@ var ListItemView = Backbone.View.extend({
     template: _.template(require('./listItemView.html')),
 
     render: function () {
+        console.log(this.model.attributes);
         this.$el.html(this.template(this.model.attributes));
     }
 

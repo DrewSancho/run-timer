@@ -31,18 +31,19 @@ var NewRunPage = Backbone.View.extend({
         var runName = this.$('.runName').val();
         var runDistance = this.$('.runDistance').val();
         var runNotes = this.$('.runNotes').val();
+        var runDate = new Date();
 
-        dispatcher.trigger('app:start',{
+        dispatcher.trigger('app:start', {
             runName: runName,
             runDistance: runDistance,
-            runNotes: runNotes
+            runNotes: runNotes,
+            runDate: runDate.toLocaleString()
         });
- 
+
         // then, change the hash to 'index' so the router will navigate
         // to the index
         window.location.hash = '';
     }
-
 
 });
 module.exports = NewRunPage;
