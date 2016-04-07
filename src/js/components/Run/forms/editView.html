@@ -1,6 +1,29 @@
-<h1> <%= runName %> </h1>
+<!-- <h1> <%= runName %> </h1>
 <input class="runDistance" value="<%= this.model.get('runDistance') %>">
 <input class="runNotes" value="<%= this.model.get('runNotes') %>" >
 <input class="runName" value="<%= this.model.get('runName') %>">
 <button class="cancel"> Cancel </button>
-<button class="submit"> Save </button>
+<button class="submit"> Save </button> -->
+
+
+<section>
+    <form class="edit_run">
+        <div class="distance">
+            <label>Distance:</label>
+            <input type="text" class="runDistance" value="<%= this.model.get('runDistance') %>"/>
+        </div>
+
+        <div class="name">
+            <label>Name:</label>
+            <input type="text" class="runName" value="<%= this.model.get('runName') %>"/>
+        </div>
+
+        <div class="run_notes">
+            <label>Notes:</label>
+            <textarea class="runNotes"><%= this.model.get('runNotes') %></textarea>
+        </div>
+
+        <input type="submit" class="edit_submit submit" value="Update Run">
+    </form>
+</section>
+
