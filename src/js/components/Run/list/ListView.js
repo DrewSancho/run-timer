@@ -6,10 +6,12 @@ var ListItemView = require('./ListItemView');
 
 var ListView = Backbone.View.extend({
 
-    className: 'runList',
+    tagName: 'ul',
+
+    className: 'runList past_runs',
 
     events: {
-        'click .newRun': 'newRun'
+        'click .new_run': 'newRun'
     },
 
     newRun: function () {
@@ -23,10 +25,10 @@ var ListView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(this.template());
         var _this = this;
 
         this.$el.empty();
+        this.$el.html(this.template());
 
         this.childViews.forEach(function (view) {
             view.remove();

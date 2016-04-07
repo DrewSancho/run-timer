@@ -4,8 +4,12 @@ var $ = require('jquery');
 
 var ListItemView = Backbone.View.extend({
 
+    tagName: 'li',
+
+    className: 'listItem past_runs',
+
     events: {
-        'click': 'onClick'
+        'click .past_runs': 'onClick'
     },
 
     onClick: function () {
