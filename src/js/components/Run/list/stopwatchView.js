@@ -50,8 +50,8 @@ var StopwatchView = Backbone.View.extend({
         this.remove();
         $('.timer-slot').empty();
 
-        model.save({  // HTTP POST
-            success: completeXfer()
+        model.save(null, {  // HTTP POST
+            success: completeXfer
         });
 
         function completeXfer () {
