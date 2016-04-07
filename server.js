@@ -24,6 +24,7 @@ app.post('/api/runs', function (req, res) {
         runCalories: req.body.runCalories,
         id: ++id
     };
+    console.log("")
     data.push(item);
     res.json(item);
 });

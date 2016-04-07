@@ -41,7 +41,7 @@ var StopwatchView = Backbone.View.extend({
         var model = new RunDataModel({
             runDate: this.data.runDate,
             runNotes: this.data.runNotes,
-            runDistance: parseInt(this.data.runDistance),
+            runDistance: this.data.runDistance,
             runCalories: calories,
             runTime: stopwatchModel.get('time')
         });
