@@ -3,6 +3,8 @@ function calorieCalc ( weight, distance, time  ) {
 
 
     function getMETS ( distance, time) {
+        var retval;
+        
         var lookup = [
             {mph: 4, METS: 6 },
             {mph: 5, METS: 8.3 },
