@@ -28,12 +28,24 @@ var IndexView = Backbone.View.extend({
     },
     events: {
         'click .calories': 'showCalorieView',
-        'click .distance': 'distanceView'
+        'click .distances': 'showDistanceView'
     },
-    showCalorieView: function (e) {
+    showCalorieView: function () {
+        if (!$('.calories').hasClass('selected')) {
+            $('.calories').addClass('selected');
+        }
+        if ($('.distances').hasClass('selected')) {
+            $('.distances').removeClass('selected');
+        }
         this.show(new CalorieListView({ collection: this.collection }));
     },
-    showDistanceView: function (e) {
+    showDistanceView: function () {
+        if (!$('.distances').hasClass('selected')) {
+            $('.distances').addClass('selected');
+        }
+        if ($('.calories').hasClass('selected')) {
+            $('.calories').removeClass('selected');
+        }
         this.show(new DistanceListView({ collection: this.collection }));
     },
     show: function (view) {
